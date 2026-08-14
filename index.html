@@ -193,6 +193,42 @@
 
   footer { padding: 3rem 0 0; color: var(--faint); font-family: var(--f-mono); font-size: var(--fs-small); }
 
+  /* ── shots ────────────────────────────────── */
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2.25rem 0 0 calc(var(--rail) + var(--gap));
+  }
+  .shots.solo { grid-template-columns: 1fr; max-width: 44rem; }
+  figure { margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .frame {
+    position: relative;
+    display: block;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    max-height: 24rem;
+    background: var(--rule-soft);
+    line-height: 0;
+  }
+  .frame img { width: 100%; display: block; }
+  .frame::after {
+    content: "";
+    position: absolute; inset: auto 0 0 0; height: 4.5rem;
+    background: linear-gradient(to bottom, transparent, var(--ground));
+    pointer-events: none;
+  }
+  .frame.full { max-height: none; }
+  .frame.full::after { display: none; }
+  .frame:hover { border-color: var(--accent); }
+  .frame:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  figcaption { font-family: var(--f-mono); font-size: var(--fs-micro); color: var(--faint); line-height: 1.6; letter-spacing: 0.02em; }
+  figcaption b { color: var(--muted); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; display: block; }
+  .shot-note { margin: 0.9rem 0 0 calc(var(--rail) + var(--gap)); font-size: var(--fs-small); color: var(--faint); }
+  a.frame { border-bottom: 1px solid var(--rule); }
+  a.frame:hover { background: none; }
+
   /* ── motion ───────────────────────────────── */
   .sec, .case, .evidence, .mast { animation: rise 0.5s ease-out backwards; }
   .evidence { animation-delay: 0.06s; }
@@ -206,7 +242,8 @@
     :root { --rail: auto; --gap: 0.5rem; }
     .habit, .case-head, .beat, .skills { grid-template-columns: 1fr; }
     .beat .lbl, .habit .lbl { padding-top: 0; }
-    .facts, .pull { margin-left: 0; }
+    .facts, .pull, .shots, .shot-note { margin-left: 0; }
+    .shots { grid-template-columns: 1fr; }
     .evidence { grid-template-columns: 1fr 1fr; }
     .ev { border-right: 0; padding: 1.25rem 0; border-bottom: 1px solid var(--rule-soft); }
     .ev:not(:first-child) { padding-left: 0; }
@@ -325,6 +362,50 @@
       <span class="lbl">그리고</span>
       <p>운영자가 로그 없이 데이터를 바꿀 수 있는 구조였습니다. 감사 로그 함수가 <em>트랜잭션을 인자로 받도록</em> 설계해(<code>writeAudit(tx, …)</code>) 로그 없는 운영 변경을 애초에 작성할 수 없게 만들었습니다. 사유는 NOT NULL, 5자 미만은 거절.</p>
     </div>
+
+    <div class="shots">
+      <figure>
+        <a class="frame" href="img/proovit-dashboard.png" target="_blank" rel="noopener">
+          <img src="img/proovit-dashboard.png" alt="PROOVIT 참가자 대시보드 — 5단계 진행 척추와 다음 할 일" width="1400" height="2170" loading="lazy">
+        </a>
+        <figcaption>
+          <b>참가자 대시보드</b>
+          권한 판정이 내준 결론을 화면이 그대로 받습니다. “서비스를 배포할 차례예요”와
+          아래 체크리스트는 <code>GET /me</code>가 계산한 <code>nextAction</code>·<code>blockedReasons</code>입니다.
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/proovit-judging.png" target="_blank" rel="noopener">
+          <img src="img/proovit-judging.png" alt="PROOVIT 운영자 심사 콘솔 — 통과·보완·미통과와 사유 입력" width="1400" height="1520" loading="lazy">
+        </a>
+        <figcaption>
+          <b>운영자 심사 콘솔</b>
+          결과와 사유만 받습니다. 채점식이 확정되기 전에 배점 칸을 만들면
+          임의 기준의 숫자가 근거로 남기 때문에, 배점은 의도적으로 빼뒀습니다.
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/proovit-submit-s3.png" target="_blank" rel="noopener">
+          <img src="img/proovit-submit-s3.png" alt="PROOVIT 스테이지 제출 폼 — 빌더 선택과 출시 전 점검" width="1400" height="2330" loading="lazy">
+        </a>
+        <figcaption>
+          <b>스테이지 제출 폼</b>
+          배포처마다 실제 제약을 함께 적었습니다 — 예: 무료 플랜이 30일 뒤 내려가 5주 시즌을 못 버티는 곳.
+          아래는 개인정보·AI 표시 자가점검 항목입니다.
+        </figcaption>
+      </figure>
+      <figure>
+        <a class="frame" href="img/proovit-leaderboard.png" target="_blank" rel="noopener">
+          <img src="img/proovit-leaderboard.png" alt="PROOVIT 공개 리더보드 — 팀별 유효 방문과 매출" width="1400" height="1400" loading="lazy">
+        </a>
+        <figcaption>
+          <b>공개 리더보드</b>
+          집계 전에는 순위를 지어내지 않고 상태를 그대로 씁니다.
+          미배포 팀은 배지로 구분되고, 어뷰징·실격 처리는 집계에서 빠집니다.
+        </figcaption>
+      </figure>
+    </div>
+    <p class="shot-note">이미지를 누르면 원본 크기로 열립니다. 화면은 데모 데이터로 채운 개발 환경입니다.</p>
   </article>
 
   <!-- ═══ CASE — 누띠 ═══ -->
@@ -507,6 +588,28 @@
         </tbody>
       </table>
     </div>
+
+    <div class="shots" style="margin-left:0; grid-template-columns:repeat(3,1fr)">
+      <figure>
+        <a class="frame full" href="img/haetopia-title.jpg" target="_blank" rel="noopener">
+          <img src="img/haetopia-title.jpg" alt="해토피아 타이틀 화면 — 로고와 로그인·회원가입 버튼" width="1400" height="787" loading="lazy">
+        </a>
+        <figcaption><b>타이틀</b>로고·버튼 계층</figcaption>
+      </figure>
+      <figure>
+        <a class="frame full" href="img/haetopia-hud.jpg" target="_blank" rel="noopener">
+          <img src="img/haetopia-hud.jpg" alt="해토피아 인게임 화면 — 퀘스트 HUD와 채팅" width="1400" height="787" loading="lazy">
+        </a>
+        <figcaption><b>인게임 HUD</b>퀘스트·레벨·채팅</figcaption>
+      </figure>
+      <figure>
+        <a class="frame full" href="img/haetopia-indoor.jpg" target="_blank" rel="noopener">
+          <img src="img/haetopia-indoor.jpg" alt="해토피아 건물 내부 — NPC 상호작용" width="1400" height="787" loading="lazy">
+        </a>
+        <figcaption><b>NPC 상호작용</b>서브 퀘스트 부여</figcaption>
+      </figure>
+    </div>
+    <p class="shot-note" style="margin-left:0">해토피아 — 한국해양대 캠퍼스를 재현한 2D RPG. 인게임 GUI를 설계·구현했습니다.</p>
   </section>
 
   <!-- ═══ 기술 ═══ -->
