@@ -160,7 +160,11 @@
   .beat { display: grid; grid-template-columns: var(--rail) 1fr; gap: var(--gap); padding: 1.5rem 0; border-top: 1px solid var(--rule-soft); }
   .beat:first-of-type { border-top: 1px solid var(--rule); }
   .beat p { max-width: 62ch; }
-  .beat p + p { margin-top: 0.9rem; }
+  /* 라벨을 뺀 나머지는 전부 2열에 머문다. 자동 배치에 맡기면 두 번째 <p>·<ul>이
+     다음 행 1열(라벨 칸)로 흘러간다. */
+  .beat > .lbl { grid-column: 1; }
+  .beat > *:not(.lbl) { grid-column: 2; }
+  .beat > *:not(.lbl) ~ *:not(.lbl) { margin-top: 0.9rem; }
   .beat .lbl { padding-top: 0.3rem; }
   .beat em { font-style: normal; background: var(--accent-bg); padding: 0.1em 0.3em; border-radius: 2px; }
   .beat code { font-family: var(--f-mono); font-size: 0.875em; color: var(--muted); }
@@ -241,6 +245,7 @@
   @media (max-width: 46rem) {
     :root { --rail: auto; --gap: 0.5rem; }
     .habit, .case-head, .beat, .skills { grid-template-columns: 1fr; }
+    .beat > .lbl, .beat > *:not(.lbl) { grid-column: 1; }
     .beat .lbl, .habit .lbl { padding-top: 0; }
     .facts, .pull, .shots, .shot-note { margin-left: 0; }
     .shots { grid-template-columns: 1fr; }
