@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="프론트엔드 개발자 진수연. 실서비스 프로덕트 4건의 프론트엔드를 단독으로 맡아 온 케이스 스터디 포트폴리오.">
+<meta name="author" content="진수연">
+<meta property="og:type" content="website">
+<meta property="og:title" content="진수연 포트폴리오">
+<meta property="og:description" content="실서비스 프로덕트 4건의 프론트엔드를 단독으로 맡아 온 케이스 스터디 포트폴리오.">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%226%22%20fill%3D%22%25231E3EC8%22%2F%3E%3Ctext%20x%3D%2216%22%20y%3D%2223%22%20font-size%3D%2219%22%20font-family%3D%22monospace%22%20font-weight%3D%22700%22%20fill%3D%22%2523fff%22%20text-anchor%3D%22middle%22%3ES%3C%2Ftext%3E%3C%2Fsvg%3E">
+<title>진수연 포트폴리오</title>
+
+<style>
+  :root {
+    --ground:   #F3F4EF;
+    --ink:      #15171B;
+    --muted:    #5B6068;
+    --faint:    #878C93;
+    --rule:     #D5D8CE;
+    --rule-soft:#E4E6DE;
+    --accent:   #1E3EC8;
+    --accent-bg:#E6E9F8;
+
+    --f-sans: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo",
+              "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+    --f-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, "D2Coding", monospace;
+
+    --fs-micro: 0.6875rem;
+    --fs-small: 0.8125rem;
+    --fs-body:  0.9375rem;
+    --fs-lead:  1.0625rem;
+    --fs-h3:    1.25rem;
+    --fs-h2:    1.75rem;
+    --fs-h1:    clamp(2.25rem, 6vw, 3.5rem);
+    --fs-stat:  clamp(1.75rem, 4.5vw, 2.5rem);
+
+    --rail: 8.5rem;
+    --gap:  2.25rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:   #111318;
+      --ink:      #E7E8E3;
+      --muted:    #959AA3;
+      --faint:    #767C85;
+      --rule:     #282C34;
+      --rule-soft:#1E2229;
+      --accent:   #8CA5FF;
+      --accent-bg:#1A2036;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:   #111318;
+    --ink:      #E7E8E3;
+    --muted:    #959AA3;
+    --faint:    #767C85;
+    --rule:     #282C34;
+    --rule-soft:#1E2229;
+    --accent:   #8CA5FF;
+    --accent-bg:#1A2036;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-sans);
+    font-size: var(--fs-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0 1.5rem 6rem;
+  }
+
+  .wrap { max-width: 62rem; margin: 0 auto; }
+
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+  a:hover { background: var(--accent-bg); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  h1, h2, h3 { text-wrap: balance; margin: 0; font-weight: 700; letter-spacing: -0.02em; }
+  p { margin: 0; }
+
+  .lbl {
+    font-family: var(--f-mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--faint);
+    font-weight: 500;
+  }
+
+  /* ── masthead ─────────────────────────────── */
+  .mast {
+    display: flex; flex-direction: column; gap: 1.25rem;
+    padding: 5rem 0 2.5rem;
+    border-bottom: 2px solid var(--ink);
+  }
+  .mast h1 { font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -0.04em; }
+  .mast .role { font-family: var(--f-mono); font-size: var(--fs-small); color: var(--accent); letter-spacing: 0.04em; }
+  .mast .lead { font-size: var(--fs-lead); max-width: 46ch; color: var(--muted); }
+  .mast .lead strong { color: var(--ink); font-weight: 600; }
+  .contact { display: flex; flex-wrap: wrap; gap: 0 1.5rem; font-family: var(--f-mono); font-size: var(--fs-small); }
+
+  /* ── evidence strip ───────────────────────── */
+  .evidence {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ev { padding: 1.75rem 1.25rem 1.75rem 0; border-right: 1px solid var(--rule-soft); }
+  .ev:last-child { border-right: 0; }
+  .ev:not(:first-child) { padding-left: 1.25rem; }
+  .ev b {
+    display: block;
+    font-size: var(--fs-stat);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    margin-bottom: 0.4rem;
+  }
+  .ev span { display: block; font-size: var(--fs-small); color: var(--muted); line-height: 1.45; }
+
+  /* ── generic section ──────────────────────── */
+  .sec { padding: 3.5rem 0; border-bottom: 1px solid var(--rule); }
+  .sec-wide { padding: 5rem 0; }
+  .sec-tight { padding: 2.25rem 0; }
+  .sec > .lbl { display: block; margin-bottom: 1.75rem; }
+
+  /* ── habits ───────────────────────────────── */
+  .habits { display: flex; flex-direction: column; gap: 1.5rem; }
+  .habit { display: grid; grid-template-columns: var(--rail) 1fr; gap: var(--gap); align-items: baseline; }
+  .habit h3 { font-size: var(--fs-h3); letter-spacing: -0.025em; }
+  .habit p { color: var(--muted); margin-top: 0.35rem; max-width: 58ch; }
+  .habit .lbl { padding-top: 0.4rem; }
+
+  /* ── case ─────────────────────────────────── */
+  .case { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
+  .case-head { display: grid; grid-template-columns: var(--rail) 1fr; gap: var(--gap); margin-bottom: 2rem; }
+  .case-head h2 { font-size: var(--fs-h2); line-height: 1.2; }
+  .case-head .sub { color: var(--muted); margin-top: 0.6rem; max-width: 54ch; }
+  .stack { font-family: var(--f-mono); font-size: var(--fs-small); color: var(--faint); margin-top: 0.75rem; }
+
+  .facts { display: flex; flex-wrap: wrap; gap: 0 2.5rem; margin: 0 0 2rem calc(var(--rail) + var(--gap)); }
+  .fact { padding: 0.75rem 0; }
+  .fact b {
+    display: block; font-family: var(--f-mono); font-size: 1.375rem;
+    font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+  }
+  .fact span { display: block; font-size: var(--fs-small); color: var(--muted); }
+  .fact.hi b { color: var(--accent); }
+
+  .beat { display: grid; grid-template-columns: var(--rail) 1fr; gap: var(--gap); padding: 1.5rem 0; border-top: 1px solid var(--rule-soft); }
+  .beat:first-of-type { border-top: 1px solid var(--rule); }
+  .beat p { max-width: 62ch; }
+  .beat p + p { margin-top: 0.9rem; }
+  .beat .lbl { padding-top: 0.3rem; }
+  .beat em { font-style: normal; background: var(--accent-bg); padding: 0.1em 0.3em; border-radius: 2px; }
+  .beat code { font-family: var(--f-mono); font-size: 0.875em; color: var(--muted); }
+
+  .pull {
+    margin: 1.75rem 0 0 calc(var(--rail) + var(--gap));
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--accent);
+    max-width: 58ch;
+    color: var(--muted);
+  }
+
+  ul.tight { margin: 0.5rem 0 0; padding-left: 1.1rem; color: var(--muted); max-width: 62ch; }
+  ul.tight li { margin-bottom: 0.4rem; }
+  ul.tight strong { color: var(--ink); font-weight: 600; }
+
+  /* ── tables ───────────────────────────────── */
+  .scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: var(--fs-small); min-width: 34rem; }
+  th, td { text-align: left; padding: 0.7rem 1rem 0.7rem 0; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+  th { font-family: var(--f-mono); font-size: var(--fs-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-weight: 500; border-bottom: 1px solid var(--rule); }
+  td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td strong { font-weight: 600; }
+
+  /* ── skills ───────────────────────────────── */
+  .skills { display: grid; grid-template-columns: var(--rail) 1fr; gap: 0.75rem var(--gap); }
+  .skills dt { grid-column: 1; }
+  .skills dd { grid-column: 2; margin: 0; font-family: var(--f-mono); font-size: var(--fs-small); color: var(--muted); line-height: 1.75; }
+  .skills dd b { color: var(--ink); font-weight: 600; }
+
+  footer { padding: 3rem 0 0; color: var(--faint); font-family: var(--f-mono); font-size: var(--fs-small); }
+
+  /* ── motion ───────────────────────────────── */
+  .sec, .case, .evidence, .mast { animation: rise 0.5s ease-out backwards; }
+  .evidence { animation-delay: 0.06s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  /* ── narrow ───────────────────────────────── */
+  @media (max-width: 46rem) {
+    :root { --rail: auto; --gap: 0.5rem; }
+    .habit, .case-head, .beat, .skills { grid-template-columns: 1fr; }
+    .beat .lbl, .habit .lbl { padding-top: 0; }
+    .facts, .pull { margin-left: 0; }
+    .evidence { grid-template-columns: 1fr 1fr; }
+    .ev { border-right: 0; padding: 1.25rem 0; border-bottom: 1px solid var(--rule-soft); }
+    .ev:not(:first-child) { padding-left: 0; }
+    .skills dd { margin-bottom: 0.75rem; }
+    .mast { padding-top: 3rem; }
+  }
+</style>
+<style>*,*::before,*::after{box-sizing:border-box}img{max-width:100%;height:auto}</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <h1>진수연</h1>
+      <div class="role">프론트엔드 개발자 · React · TypeScript · Next.js</div>
+    </div>
+    <p class="lead">
+      실서비스 프로덕트 <strong>4건의 프론트엔드를 혼자</strong> 맡아 왔습니다.
+      전부 백엔드 1명 + 프론트 1명 구조여서, 화면을 그리는 일뿐 아니라
+      계약을 맞추고 회귀를 막고 사람이 실제로 쓸 수 있게 만드는 일까지 제 몫이었습니다.
+    </p>
+    <div class="contact">
+      <a href="mailto:ssyeo_n@naver.com">ssyeo_n@naver.com</a>
+      <a href="https://github.com/jinxuyeon">github.com/jinxuyeon</a>
+    </div>
+  </header>
+
+  <section class="evidence" aria-label="핵심 근거">
+    <div class="ev">
+      <b>5건</b>
+      <span>프론트엔드 레포 커밋 1위<br>(3건은 백엔드 레포까지 합산해도 1위)</span>
+    </div>
+    <div class="ev">
+      <b>5건</b>
+      <span>실서비스 프로덕트<br>재직 4건 + 개인 1건</span>
+    </div>
+    <div class="ev">
+      <b>2건</b>
+      <span>특허 출원</span>
+    </div>
+    <div class="ev">
+      <b>4건</b>
+      <span>수상<br>학회 우수논문상 포함</span>
+    </div>
+  </section>
+
+  <section class="sec sec-wide">
+    <span class="lbl">반복해서 하는 것</span>
+    <div class="habits">
+      <div class="habit">
+        <span class="lbl">01 / 안전망</span>
+        <div>
+          <h3>회귀 방지 장치를 스스로 깝니다</h3>
+          <p>테스트가 0개고 CI가 프론트를 검사하지 않던 프로젝트에 Vitest와 검사 워크플로를 직접 만들어 넣었습니다. 커밋 메시지에 이렇게 적었습니다 — “테스트를 아무도 강제하지 않던 것”.</p>
+        </div>
+      </div>
+      <div class="habit">
+        <span class="lbl">02 / 접근성</span>
+        <div>
+          <h3>요구받기 전에 잡습니다</h3>
+          <p>포커스 트랩, 키보드 내비게이션, <code>prefers-reduced-motion</code>, 레이아웃 시프트. “보기 좋게”가 아니라 키보드·스크린리더·모션 민감 사용자·터치 기준으로 훑습니다.</p>
+        </div>
+      </div>
+      <div class="habit">
+        <span class="lbl">03 / 계약</span>
+        <div>
+          <h3>백엔드를 기다리지 않습니다</h3>
+          <p>MSW 목으로 계약을 먼저 세워 화면을 완성합니다. 2인 팀에서 대기 시간을 0으로 만드는 방법이고, 실제로 두 프로젝트에서 그렇게 했습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CASE — PROOVIT ═══ -->
+  <article class="case">
+    <div class="case-head">
+      <span class="lbl">개인 · 개발 1인</span>
+      <div>
+        <h2>PROOVIT</h2>
+        <p class="sub">AI 빌드 시즌제 리그 플랫폼. 3인 팀의 <strong>개발 전담 1인</strong>으로 프론트·백엔드·DB·배포·인프라를 전부 맡았습니다. 현재 배포 운영 중.</p>
+        <div class="stack">Next.js 16 · TypeScript · Prisma · PostgreSQL(Neon) · Auth.js · Zod · Upstash · Vercel</div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><b>64</b><span>커밋 / 11일</span></div>
+      <div class="fact"><b>23,800</b><span>직접 작성 라인</span></div>
+      <div class="fact"><b>34</b><span>페이지 라우트</span></div>
+      <div class="fact"><b>43</b><span>DB 모델</span></div>
+    </div>
+
+    <div class="beat">
+      <span class="lbl">문제</span>
+      <p>시즌제라 화면마다 “지금 시즌 단계가 뭔지, 이 팀이 어느 스테이지인지”에 따라 접근 여부가 갈립니다. 화면마다 <code>if (phase === 'recruiting')</code> 식으로 쓰기 시작하면 규칙이 바뀔 때 34곳을 전부 고쳐야 합니다.</p>
+    </div>
+    <div class="beat">
+      <span class="lbl">판단</span>
+      <p>판정을 <code>canAccess()</code> 한 곳으로 모으고, <em>phase 값을 직접 비교하지 않도록</em> 술어 한 겹을 끼웠습니다. 그리고 판정 로직 파일에서 ORM 의존을 걷어냈습니다 — 판정이 순수해야 클라이언트 번들이 깨지지 않기 때문입니다.</p>
+    </div>
+    <div class="beat">
+      <span class="lbl">결과</span>
+      <p>이후 실제로 시즌 단계 값이 <strong>10개에서 6개로 통합</strong>되는 변경이 왔습니다. 고친 파일은 <strong>4개</strong>였고 라우트 34개와 판정표는 한 줄도 건드리지 않았습니다. 검증 케이스 52개 통과.</p>
+    </div>
+
+    <blockquote class="pull">“혹시 몰라서” 넣은 추상화가 아닙니다. 기획이 확정 전이라는 걸 알고 <strong>변할 축을 미리 격리한 것</strong>이고, 실제로 그 축이 변했습니다.</blockquote>
+
+    <div class="beat" style="margin-top:2rem">
+      <span class="lbl">또 하나</span>
+      <p><strong>자동 생성된 마이그레이션이 운영 데이터를 지울 뻔했습니다.</strong> Prisma가 컬럼을 <code>DROP + ADD</code>로 처리하고 있어서, 그대로 돌리면 시즌 이름이 사라지고 기존 구글 계정 연결이 끊깁니다.</p>
+      <p>자동 생성본을 버리고 5곳을 직접 작성했습니다 — <code>RENAME COLUMN</code>, <code>USING</code> 캐스트, 옛 값 5종을 새 값으로 접는 <code>CASE</code> 매핑. 빈 DB부터 마이그레이션 5개를 재생해 테이블 43개·ENUM 33개 생성을 확인했고, 운영 데이터 손실은 0이었습니다.</p>
+    </div>
+    <div class="beat">
+      <span class="lbl">그리고</span>
+      <p>운영자가 로그 없이 데이터를 바꿀 수 있는 구조였습니다. 감사 로그 함수가 <em>트랜잭션을 인자로 받도록</em> 설계해(<code>writeAudit(tx, …)</code>) 로그 없는 운영 변경을 애초에 작성할 수 없게 만들었습니다. 사유는 NOT NULL, 5자 미만은 거절.</p>
+    </div>
+  </article>
+
+  <!-- ═══ CASE — 누띠 ═══ -->
+  <article class="case">
+    <div class="case-head">
+      <span class="lbl">재직 · 프론트 단독</span>
+      <div>
+        <h2>누띠 사진 놀이터</h2>
+        <p class="sub">강아지 사진을 AI로 변환해 쇼핑몰 유입으로 잇는 서비스. <strong>화면 12개 전부</strong>를 맡았습니다.</p>
+        <div class="stack">React · Vite · TypeScript · TanStack Query · MSW</div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact hi"><b>108</b><span>커밋 — 1위 (2위 59)</span></div>
+      <div class="fact"><b>12</b><span>담당 화면 W-01~W-12</span></div>
+      <div class="fact"><b>3일</b><span>테스트 0 → 전 화면 커버</span></div>
+    </div>
+
+    <div class="beat">
+      <span class="lbl">문제</span>
+      <p>프론트에 테스트가 <strong>0개</strong>였고 CI가 프론트를 검사하지 않았습니다. 기능은 계속 늘어나는데 안전망이 없었고, 특히 위험한 건 눈으로 확인할 수 없는 것들이었습니다 — 보관함에서 삭제한 뒤의 상태, 뒤로가기 경로, 서버가 거절했을 때의 문구, 잔액을 알 수 없는 상황.</p>
+    </div>
+    <div class="beat">
+      <span class="lbl">판단</span>
+      <p>순서를 이렇게 잡았습니다. Vitest 도입 → 프론트 검사 워크플로 신설 → <em>목 상태 격리부터</em>. 테스트끼리 오염되면 나머지가 전부 무의미해지기 때문에 격리가 먼저였습니다.</p>
+      <p>그다음 되돌릴 수 없는 동작(삭제·뒤로가기·서버 거절·미상 잔액) → 대기·결과·계산기 → 로그인·OAuth 복귀 순으로 덮었습니다.</p>
+    </div>
+    <div class="beat">
+      <span class="lbl">결과</span>
+      <p>사흘 만에 12화면 전체에 회귀 방지선이 생겼습니다. 이후 백엔드 계약이 바뀌어도 깨지는 지점이 CI에서 먼저 드러납니다.</p>
+    </div>
+
+    <div class="beat" style="margin-top:2rem">
+      <span class="lbl">접근성</span>
+      <p>요구받지 않은 작업입니다. 한 번에 훑어서 정리했습니다.</p>
+      <ul class="tight">
+        <li><strong>모달 포커스 트랩·초기 포커스·복원</strong> — 키보드 사용자가 모달 뒤로 빠져나가고 있었습니다</li>
+        <li><strong>로그인 시트가 떠 있는데 뒤 화면이 눌리던 것</strong> — 시각적으로만 모달이었습니다</li>
+        <li><strong>버튼·탭 키보드 포커스 링</strong> — 키보드로는 지금 어디 있는지 알 수 없었습니다</li>
+        <li><code>prefers-reduced-motion</code> 대응 · 로딩 스켈레톤으로 레이아웃 점프 제거</li>
+        <li>앱바 ← 버튼 터치 타겟 확대 · 12개 화면이 전부 같던 브라우저 탭 제목 수정</li>
+      </ul>
+    </div>
+    <div class="beat">
+      <span class="lbl">잡은 것</span>
+      <p><strong>CDN을 붙이는 순간 이미지 저장이 저장이 아니게 되던 것</strong>(blob 우회로 해결), <strong>문서에 없는 <code>error_code</code> 하나에 결과 화면이 통째로 죽던 것</strong>(미상 코드 폴백), 사진을 바꿔 골라도 남아 있던 이전 업로드 거절 문구, 갱신만 막힌 회원에게 원인도 해제 시점도 안 알리던 것.</p>
+    </div>
+  </article>
+
+  <!-- ═══ CASE — 댓글봇 ═══ -->
+  <article class="case">
+    <div class="case-head">
+      <span class="lbl">재직 · 프론트 단독</span>
+      <div>
+        <h2>SNS 댓글봇</h2>
+        <p class="sub">SNS에서 키워드를 감시하고 <strong>사람이 승인 버튼을 눌러야만</strong> 답변이 나가는 웹앱입니다. 자동 게시 봇이 아닙니다.</p>
+        <div class="stack">React · TypeScript · Tailwind · MSW · 2026.07.20 – 08.12</div>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact hi"><b>51</b><span>커밋 — 1위 (2위 42)</span></div>
+      <div class="fact"><b>3주</b><span>화면 전체 구축</span></div>
+    </div>
+
+    <div class="beat">
+      <span class="lbl">범위</span>
+      <p>대시보드(매칭 리스트·필터·소스 헬스 배지), 매칭 상세·승인, 소스/키워드/템플릿/계정 CRUD, admin 사용자 관리, 감사 로그, Threads OAuth 연동까지 3주 안에 전부 올렸습니다.</p>
+    </div>
+    <div class="beat">
+      <span class="lbl">문제</span>
+      <p>여러 건을 한 번에 승인·발송하는 기능을 붙이는데, 구조상 <strong>N건에 동일한 문구가 그대로 실려 나가게</strong> 되어 있었습니다. 기술적으로는 정상 동작이지만 플랫폼 입장에서는 스팸이고, 계정이 정지될 수 있습니다.</p>
+    </div>
+    <div class="beat">
+      <span class="lbl">판단</span>
+      <p>백엔드 계약을 기다리지 않고 <em>건별 문구 렌더로 전환</em>했고, 발송 전 화면에서 각 건의 실제 문구를 확인할 수 있게 했습니다.</p>
+    </div>
+
+    <blockquote class="pull">프론트엔드가 “화면만 그리는 자리”였다면 나오지 않았을 판단입니다. 이 화면이 실제로 어떤 결과를 만드는지를 보고 잡았습니다.</blockquote>
+
+    <div class="beat" style="margin-top:2rem">
+      <span class="lbl">또</span>
+      <p><strong>실패를 사람이 읽을 수 있게 만들었습니다.</strong> 소스 <code>degraded</code>/<code>down</code> 배지에 “왜”를 붙이고(상태만 빨간색이면 대응이 안 됩니다), 409 차단 사유를 “중복 답글”·“계정 삭제됨” 같은 문장으로 바꾸고, RSS 원문 HTML이 그대로 노출되던 것을 평문 정규화했습니다.</p>
+      <p>정합성 쪽으로는 CSRF가 아닌 403에도 뮤테이션을 재전송하던 것을 막고 <strong>단일비행(single-flight) 회귀 테스트로 고정</strong>했습니다. 그 외 앱 전체 모바일 반응형, 파비콘·로고 SVG 제작, 프론트 영역 규칙 문서를 디렉터리에 부착.</p>
+    </div>
+  </article>
+
+  <!-- ═══ CASE — Lead-Crawler ═══ -->
+  <article class="case">
+    <div class="case-head">
+      <span class="lbl">재직 · 프론트 단독</span>
+      <div>
+        <h2>Lead-Crawler</h2>
+        <p class="sub">기업 IR 연락처를 24/7 자동 수집하고 <strong>직원은 검증만</strong> 하는 시스템. 제가 만든 검증 웹앱이 그 “사람 1~2명”이 하루 종일 보는 유일한 화면이었습니다.</p>
+        <div class="stack">React · TypeScript</div>
+      </div>
+    </div>
+
+    <div class="scroll" style="margin-left:0">
+      <table>
+        <thead>
+          <tr><th>구분</th><th>수치</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>기존</td><td class="num">직원 수작업 수집 — 상시 인력 투입</td></tr>
+          <tr><td>전환 후 체제</td><td class="num"><strong>자동 수집 + 검증 1~2인</strong></td></tr>
+          <tr><td>축적 규모</td><td class="num">수만 건 규모의 발견 원장 → 검증 통과분만 큐로</td></tr>
+          <tr><td>내 커밋</td><td class="num">83건 (전량 이슈/PR 단위)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="beat" style="margin-top:2rem">
+      <span class="lbl">전제</span>
+      <p>이 화면의 처리 속도가 곧 필요한 인원 수입니다. 그래서 작업을 두 갈래로 나눴습니다.</p>
+    </div>
+    <div class="beat">
+      <span class="lbl">처리량을<br>올리는 쪽</span>
+      <ul class="tight">
+        <li><strong>큐 클레임 영구 배정</strong> — 반납을 없애고 조회/받기를 분리해, 같은 건을 두 사람이 붙잡는 상황과 받아놓고 방치되는 건을 동시에 없앴습니다</li>
+        <li><strong>확정/거부 2단계 통일</strong> — 마우스 클릭에도 확인 모달. 되돌리기 비용이 큰 동작입니다</li>
+        <li><strong>거부 <code>Delete</code> 단축키</strong> — 하루 수백 건을 처리하는 화면에서 손이 마우스를 떠나지 않게</li>
+        <li>확정/거부 번복 흐름의 dead end 해소 — 번복하려 하면 모달에서 길이 끊겨 있었습니다</li>
+        <li>국가·업종·상장·시장·지역 다중 필터, 컬럼 정렬, 새로고침 시 탭 유지</li>
+      </ul>
+    </div>
+    <div class="beat">
+      <span class="lbl">처리량을<br>측정하는 쪽</span>
+      <p>이쪽이 더 중요합니다 — <strong>일별·직원별 확정/거부 집계</strong>, <strong>직원별 일일 검수 처리량 조회</strong>, 엑셀 추출의 확정 처리일(KST) 범위 필터.</p>
+    </div>
+
+    <blockquote class="pull">인건비 절감은 시스템 전체의 성과입니다. 다만 “검증 1~2인 체제로 간다”는 계획이 실제로 도는지를 <strong>숫자로 확인할 수 있게 만든 자리</strong>는 제가 맡았습니다.</blockquote>
+
+    <div class="beat" style="margin-top:2rem">
+      <span class="lbl">방법</span>
+      <p><code>npm run dev:mock</code> — MSW 목 모드를 만들어 백엔드 없이 화면을 완성했습니다. 목 큐 100건을 넣어 대량 데이터에서의 레이아웃·성능까지 미리 확인했고, 백엔드 PR이 착지하면 그 PR 번호를 참조해 계약을 맞췄습니다.</p>
+    </div>
+  </article>
+
+  <!-- ═══ 그 외 ═══ -->
+  <section class="sec">
+    <span class="lbl">그 외 프로젝트</span>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>프로젝트</th><th>내용</th><th>기여</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Chatty</strong></td>
+            <td>실시간 채팅 게임 플랫폼 · React+TS+Vite</td>
+            <td class="num">커밋 1위 109건<br>(서버 2개 포함해도 1위)</td>
+          </tr>
+          <tr>
+            <td><strong>컴히얼</strong></td>
+            <td>조립PC 추천 플랫폼 · React</td>
+            <td class="num">프론트 커밋 1위 73건</td>
+          </tr>
+          <tr>
+            <td><strong>핵플레이</strong></td>
+            <td>협업 기반 웹개발 학습 플랫폼 · React+TS+Tailwind</td>
+            <td class="num">프론트 커밋 1위 34건</td>
+          </tr>
+          <tr>
+            <td><strong>모아이 (MoAI)</strong></td>
+            <td>학과 전용 커뮤니티 · React / Spring Boot / AWS</td>
+            <td class="num">프론트 55건 · 실배포 운영</td>
+          </tr>
+          <tr>
+            <td><strong>모아 (MOA)</strong></td>
+            <td>사내 협업툴 온프레미스 통합 · React 19 · TipTap+Yjs</td>
+            <td class="num">프론트엔드<br>근태 모듈 설계서 작성</td>
+          </tr>
+          <tr>
+            <td><strong>해토피아</strong></td>
+            <td>메타버스 기반 캠퍼스 체험 2D RPG · Unity</td>
+            <td class="num">기획 · Unity 클라이언트<br>UI/UX·GUI 디자인</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ 기술 ═══ -->
+  <section class="sec">
+    <span class="lbl">기술</span>
+    <dl class="skills">
+      <dt class="lbl">주력</dt>
+      <dd><b>React · TypeScript · Next.js (App Router) · Vite</b></dd>
+      <dt class="lbl">데이터·상태</dt>
+      <dd>TanStack Query · MSW · Zod</dd>
+      <dt class="lbl">스타일</dt>
+      <dd>Tailwind CSS · CSS Modules · 디자인 토큰</dd>
+      <dt class="lbl">테스트·CI</dt>
+      <dd>Vitest · GitHub Actions</dd>
+      <dt class="lbl">백엔드</dt>
+      <dd>Node.js · Prisma · PostgreSQL · Auth.js · FastAPI (연동)</dd>
+      <dt class="lbl">인프라</dt>
+      <dd>Vercel · Neon · Cloudflare (Turnstile · R2) · Docker</dd>
+      <dt class="lbl">협업</dt>
+      <dd>트렁크 기반 PR · 이슈 단위 작업 · API 계약 문서 · 데일리 스크럼</dd>
+    </dl>
+  </section>
+
+  <!-- ═══ 이력 ═══ -->
+  <section class="sec sec-tight">
+    <span class="lbl">이력</span>
+    <div class="scroll">
+      <table>
+        <tbody>
+          <tr>
+            <td class="num">2026.06 – 2026.10</td>
+            <td><strong>제니스자산운용</strong> 개발팀 — 프로덕트 4건 프론트엔드 단독 담당<br>
+              <span style="color:var(--muted)">단기 리서치 보조로 입사해 이틀 만에 개발팀으로 전환</span></td>
+          </tr>
+          <tr>
+            <td class="num">2025.02</td>
+            <td><strong>국립한국해양대학교</strong> 인공지능공학부 컴퓨터공학전공 졸업</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ 수상·특허 ═══ -->
+  <section class="sec">
+    <span class="lbl">수상 · 특허</span>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>시기</th><th>구분</th><th>내용</th></tr></thead>
+        <tbody>
+          <tr><td class="num">2024.11</td><td><strong>우수논문상</strong></td><td>한국지능시스템학회 추계학술대회 — 「메타버스 기반 대학 캠퍼스 체험 게임 프레임워크 개발」</td></tr>
+          <tr><td class="num">2024.01</td><td>특허 출원</td><td>인공지능 사고감지 시스템</td></tr>
+          <tr><td class="num">2023.02</td><td>특허 출원</td><td>자동 제동 및 동력 보조 수단을 구비한 스마트 유모차</td></tr>
+          <tr><td class="num">—</td><td>우수상</td><td>해양특성화 ICC대학 연합경진대회 (인천대학교 LINC 3.0 사업단)</td></tr>
+          <tr><td class="num">—</td><td>장려상</td><td>캡스톤디자인 경진대회 (한국해양대학교 LINC 3.0 사업단)</td></tr>
+          <tr><td class="num">—</td><td>입상</td><td>부산디지털혁신아카데미 잡페어 (부산정보산업진흥원)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1.25rem; color:var(--muted); font-size:var(--fs-small)">어학 · 토익스피킹 IH</p>
+  </section>
+
+  <footer>
+    진수연 · <a href="mailto:ssyeo_n@naver.com">ssyeo_n@naver.com</a> · <a href="https://github.com/jinxuyeon">github.com/jinxuyeon</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
