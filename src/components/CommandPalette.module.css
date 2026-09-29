@@ -1,0 +1,206 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 8px 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    scale 120ms var(--ease-out);
+}
+.trigger:hover {
+  border-color: var(--ink);
+}
+.trigger:active {
+  scale: 0.97;
+}
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--accent-tint);
+  color: var(--accent-ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@media (max-width: 859px) {
+  /* 좁은 화면에서는 옆의 테마·메뉴 아이콘 버튼과 같은 모양(평소 테두리 없음) */
+  .trigger {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    border-color: transparent;
+    background: transparent;
+  }
+  .trigger:hover {
+    border-color: var(--line-strong);
+  }
+  .triggerLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .kbd {
+    display: none;
+  }
+}
+
+/* ─── 대화상자 ───────────────────────────── */
+.dialog {
+  width: min(640px, calc(100vw - 32px));
+  max-height: min(560px, calc(100dvh - 120px));
+  margin: 12vh auto auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow:
+    0 1px 0 rgb(0 0 0 / 0.04),
+    0 40px 80px -24px rgb(0 0 0 / 0.45);
+  overflow: hidden;
+}
+.dialog::backdrop {
+  background: rgb(20 18 17 / 0.42);
+  backdrop-filter: blur(3px);
+}
+.dialog[open] {
+  animation: palette-in 120ms var(--ease-out);
+}
+.dialog[open]::backdrop {
+  animation: fade-in 120ms ease-out;
+}
+@keyframes palette-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.field::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--brand);
+}
+.prompt {
+  /* 16px 글리프라 작은 글자 기준(4.5:1)을 맞추는 --accent-ink */
+  color: var(--accent-ink);
+  font-size: 1rem;
+  font-weight: 700;
+}
+.input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.0625rem;
+  outline: none;
+}
+.input:focus-visible {
+  /* 팔레트가 열려 있는 동안 포커스는 늘 이 입력칸에 있다. 링 대신 패널이 그 표시다. */
+  outline: none;
+}
+.input::placeholder {
+  color: var(--muted);
+}
+.esc {
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 46px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.option[aria-selected='true'] {
+  background: var(--accent-tint);
+  color: var(--ink);
+  box-shadow: inset 3px 0 0 var(--brand);
+}
+.optionGroup {
+  flex-shrink: 0;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.option[aria-selected='true'] .optionGroup {
+  color: var(--accent-ink);
+}
+
+.empty {
+  padding: 20px 20px 24px;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.foot {
+  display: flex;
+  gap: 18px;
+  padding: 10px 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+@media (max-width: 559px) {
+  .foot {
+    display: none;
+  }
+  .dialog {
+    margin-top: 72px;
+  }
+}

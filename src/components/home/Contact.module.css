@@ -1,0 +1,88 @@
+.contact {
+  position: relative;
+  overflow: hidden;
+  background: var(--contact-bg);
+  color: var(--on-contact);
+}
+.contact:focus {
+  outline: none;
+}
+.contact ::selection {
+  background: var(--on-contact);
+  color: var(--contact-bg);
+}
+.contact :focus-visible {
+  outline-color: var(--on-contact);
+}
+.inner {
+  padding-block: clamp(40px, 5.2vw, 80px) clamp(36px, 4.5vw, 60px);
+}
+.title {
+  font-size: clamp(3.375rem, 7.7vw, 7rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  margin-left: -0.03em;
+}
+.rows {
+  margin-top: clamp(32px, 4.5vw, 60px);
+  border-top: 2px solid color-mix(in srgb, var(--on-contact) 90%, transparent);
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  padding-block: clamp(20px, 2.6vw, 32px);
+  border-bottom: 1px solid color-mix(in srgb, var(--on-contact) 45%, transparent);
+}
+.value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3em;
+  font-size: clamp(1.375rem, 3.1vw, 2.625rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  background: linear-gradient(var(--on-contact), var(--on-contact)) 0 100% / 0% 3px no-repeat;
+  transition: background-size 260ms var(--ease-out);
+}
+.value:hover {
+  background-size: 100% 3px;
+}
+.ext {
+  font-size: 0.6em;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+/* 24px 굵게 — 연락 섹션은 큰 글자 기준 대비만 통과한다 */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 0 24px;
+  border: 2px solid var(--on-contact);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--on-contact);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    scale 120ms var(--ease-out);
+}
+.pill:hover {
+  background: var(--on-contact);
+  color: var(--contact-bg);
+}
+.pill:active {
+  scale: 0.97;
+}

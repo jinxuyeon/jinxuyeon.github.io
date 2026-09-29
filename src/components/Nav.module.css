@@ -1,0 +1,93 @@
+.sentinel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: var(--nav-h);
+  /* 불투명하게 둔다. 반투명·블러는 뒤의 스크린샷·제목·버튼이 링크 뒤로 번져 비쳤다. */
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  /* 배경은 전환하지 않는다. 투명→불투명 사이 몇 프레임 동안 뒤 콘텐츠가 그대로 비친다. */
+  transition:
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+  box-shadow: 0 8px 24px -20px rgb(0 0 0 / 0.35);
+}
+
+/* 맨 위: 배경·선·그림자를 걷는다 */
+.nav[data-top='true'] {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.0625rem;
+  letter-spacing: -0.03em;
+  border-radius: 8px;
+}
+.brand svg {
+  transition: rotate 300ms var(--ease-out);
+}
+.brand:hover svg {
+  rotate: -8deg;
+}
+
+.links {
+  margin-left: auto;
+}
+.links ul {
+  display: flex;
+  gap: clamp(20px, 2.4vw, 36px);
+  margin: 0;
+}
+.links a {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 859px) {
+  .links {
+    display: none;
+  }
+  .actions {
+    margin-left: auto;
+  }
+  /* JS가 없으면 메뉴 버튼이 동작하지 않으므로 섹션 링크를 그대로 보인다 */
+  :global(html:not(.js)) .links {
+    display: block;
+    margin-left: auto;
+  }
+  :global(html:not(.js)) .links ul {
+    gap: 14px;
+  }
+  :global(html:not(.js)) .links a {
+    font-size: 0.875rem;
+  }
+}

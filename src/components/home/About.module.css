@@ -1,0 +1,93 @@
+.about {
+  padding-block: clamp(32px, 3.8vw, 60px);
+}
+.about:focus {
+  outline: none;
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(24px, 4.5vw, 72px);
+  align-items: start;
+}
+.statement {
+  display: grid;
+  gap: 1.1em;
+  font-size: clamp(1.3125rem, 2vw, 1.8125rem);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.035em;
+}
+.statement strong {
+  font-weight: 800;
+  background: linear-gradient(transparent 62%, var(--mark-bg) 62%);
+}
+
+.bento {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+.cell {
+  display: grid;
+  gap: 6px;
+  padding: clamp(20px, 2.4vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+}
+/* 반전 카드. 다크에서 --ink로 뒤집으면 페이지에서 가장 밝은 면이 되므로 전용 토큰을 쓴다. */
+.cell[data-variant='accent'] {
+  border-color: color-mix(in srgb, var(--brand) 45%, transparent);
+  background: var(--invert-bg);
+  color: var(--invert-ink);
+}
+.when {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.cell[data-variant='accent'] .when {
+  color: color-mix(in srgb, var(--invert-ink) 72%, var(--invert-bg));
+}
+.when :global(.mono) {
+  color: var(--accent-ink);
+}
+.cell[data-variant='accent'] .when :global(.mono) {
+  color: var(--invert-ink);
+}
+.org {
+  margin-top: 8px;
+  font-size: clamp(1.3125rem, 1.7vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.body {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 0.9375rem;
+  color: color-mix(in srgb, var(--invert-ink) 72%, var(--invert-bg));
+}
+.note::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--brand);
+  rotate: 45deg;
+}
+
+@media (max-width: 899px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

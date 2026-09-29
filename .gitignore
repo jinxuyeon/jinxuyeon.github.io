@@ -1,1 +1,12 @@
+node_modules/
+.next/
+out/
 .DS_Store
+*.tsbuildinfo
+next-env.d.ts
+
+# prebuild(scripts/prebuild.mjs)가 만드는 파일
+public/fonts/
+public/og/
+public/img/*.webp
+public/grain.png

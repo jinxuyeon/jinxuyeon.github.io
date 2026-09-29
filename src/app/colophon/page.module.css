@@ -1,0 +1,128 @@
+.page {
+  padding-top: calc(var(--nav-h) + clamp(32px, 5.2vw, 72px));
+  padding-bottom: clamp(48px, 6vw, 88px);
+}
+.head {
+  display: grid;
+  gap: clamp(16px, 2vw, 24px);
+  padding-bottom: clamp(32px, 3.8vw, 48px);
+}
+.title {
+  font-size: clamp(2.125rem, 4.9vw, 4.1875rem);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+}
+.lede {
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.notes {
+  border-top: 1px solid var(--ink);
+}
+.note {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: 12px clamp(16px, 3vw, 48px);
+  padding-block: clamp(28px, 3.4vw, 44px);
+  border-bottom: 1px solid var(--line);
+}
+.noteTitle {
+  font-size: clamp(1.3125rem, 1.7vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.noteBody {
+  display: grid;
+  /* 트랙을 0까지 줄일 수 있게 둬야 긴 URL이 칸을 밀어내지 않고 줄을 바꾼다(320px) */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  max-width: 48rem;
+  min-width: 0;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.table {
+  width: 100%;
+  margin-top: 12px;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.table caption {
+  padding-bottom: 8px;
+  text-align: left;
+  font-weight: 700;
+}
+.table th,
+.table td {
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+.table thead th {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+  border-bottom-color: var(--line-strong);
+}
+.table tbody th {
+  font-weight: 600;
+}
+.table td:last-child {
+  white-space: nowrap;
+}
+.swatches {
+  display: inline-flex;
+  margin-right: 10px;
+  vertical-align: -3px;
+}
+.swatches span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+}
+.swatches span + span {
+  margin-left: -5px;
+}
+.pass {
+  color: var(--muted);
+}
+
+.fonts {
+  display: grid;
+  margin: 0;
+}
+.fonts li {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) auto;
+  gap: 4px 16px;
+  padding-block: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.fonts li:first-child {
+  padding-top: 0;
+}
+.fonts span {
+  color: var(--muted);
+}
+
+.back {
+  margin-top: clamp(32px, 3.8vw, 48px);
+}
+
+@media (max-width: 767px) {
+  .note {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .fonts li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .table td:nth-child(2) :global(.mono) {
+    display: none;
+  }
+}

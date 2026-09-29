@@ -1,0 +1,15 @@
+.prefix {
+  color: var(--muted);
+}
+.unit {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.42em;
+  letter-spacing: -0.03em;
+  margin-left: 0.08em;
+}
+/* 단위는 작은 글자라(모바일 카드에서 16.8px) 포인트 색 대신 작은 글자용 강조 색을 쓴다 */
+.unit[data-hi] {
+  color: var(--accent-ink);
+}

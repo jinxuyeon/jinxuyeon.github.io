@@ -1,0 +1,106 @@
+/* 전역 .icon-btn보다 우선해야 하므로 요소 선택자를 붙인다 */
+button.burger {
+  display: none;
+}
+@media (max-width: 859px) {
+  button.burger {
+    display: inline-grid;
+  }
+}
+
+.menu {
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0 var(--gutter) max(24px, env(safe-area-inset-bottom));
+  border: 0;
+  background: var(--bg);
+  color: var(--ink);
+  display: none;
+  flex-direction: column;
+}
+.menu[open] {
+  display: flex;
+  animation: menu-in 420ms var(--ease-out);
+}
+.menu::backdrop {
+  background: transparent;
+}
+@keyframes menu-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.0625rem;
+  letter-spacing: -0.03em;
+}
+
+.list {
+  margin: 0;
+  padding: 24px 0 0;
+  flex: 1;
+}
+.item {
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.link {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 8px;
+  padding: 18px 0 14px;
+}
+/* 줄 마스크 리빌: 각 줄이 아래에서 올라온다 */
+.menu[open] .link {
+  animation: line-up 560ms var(--ease-out) both;
+  animation-delay: calc(120ms + var(--i) * 55ms);
+}
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+.no {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.label {
+  font-size: clamp(1.6875rem, 6.3vw, 2.125rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+.link:hover .label {
+  color: var(--accent-ink);
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 24px;
+  font-size: 1rem;
+  color: var(--muted);
+}

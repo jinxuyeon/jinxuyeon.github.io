@@ -1,0 +1,38 @@
+/* 섹션을 가르는 헤어라인 한 줄 위에 제목 */
+.head {
+  display: grid;
+  gap: clamp(16px, 2vw, 24px);
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+.head::before {
+  content: '';
+  height: 1px;
+  background: var(--line);
+}
+.head[data-size='sm'] {
+  gap: clamp(12px, 1.6vw, 20px);
+  margin-bottom: clamp(20px, 2.4vw, 32px);
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+.title {
+  font-size: clamp(2.125rem, 4.2vw, 3.6875rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+/* 작은 제목도 바로 아래 목록의 가장 큰 줄(기술의 「주력」 행)보다 한 단계 크게 */
+.head[data-size='sm'] .title {
+  font-size: clamp(1.5rem, 2.4vw, 2.125rem);
+  letter-spacing: -0.04em;
+}
+.aside {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--muted);
+}

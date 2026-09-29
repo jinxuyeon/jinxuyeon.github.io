@@ -1,0 +1,72 @@
+.stack {
+  padding-block: clamp(32px, 3.8vw, 60px);
+}
+.stack:focus {
+  outline: none;
+}
+.list {
+  margin: 0;
+  border-top: 1px solid var(--ink);
+}
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: 8px clamp(20px, 3vw, 48px);
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+/* 마지막 행은 아래선을 두지 않는다. 다음 섹션 머리의 헤어라인이 경계다(두 줄 사이 빈 띠가 생기지 않게). */
+.row:last-child {
+  border-bottom: 0;
+}
+.group {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--muted);
+  padding-top: 2px;
+}
+.items {
+  margin: 0;
+  /* 줄 첫머리로 밀려난 구분점을 왼쪽 밖으로 잘라 낸다 */
+  overflow: hidden;
+}
+.items ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  margin: 0 0 0 -1.4em;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.items li {
+  white-space: nowrap;
+}
+/* 구분점은 항목 앞에 붙이고 목록 전체를 점 폭만큼 왼쪽으로 민다.
+   줄이 바뀌면 새 줄의 첫 점은 잘려 보이지 않고, 줄 끝에 점이 매달리지도 않는다. */
+.items li::before {
+  content: '·';
+  /* 보조기기에는 읽히지 않게(대체 텍스트 빈 값) */
+  content: '·' / '';
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
+  color: var(--line-strong);
+}
+.row[data-main] {
+  padding-block: 26px;
+}
+.row[data-main] .group {
+  color: var(--accent-ink);
+}
+.row[data-main] .items ul {
+  font-size: clamp(1.1875rem, 1.7vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 639px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

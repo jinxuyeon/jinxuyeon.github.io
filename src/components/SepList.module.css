@@ -1,0 +1,20 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 0 -1.2em;
+  padding: 0;
+  clip-path: inset(0 0 0 1.2em);
+}
+.list li {
+  white-space: nowrap;
+}
+.list li::before {
+  /* 대체 텍스트 문법을 모르는 브라우저가 아래 줄을 버려도 점이 생겨 첫 글자가 잘리지 않게 */
+  content: '·';
+  /* 보조기기에는 읽히지 않게(대체 텍스트 빈 값) */
+  content: '·' / '';
+  display: inline-block;
+  width: 1.2em;
+  text-align: center;
+  color: var(--line-strong);
+}
