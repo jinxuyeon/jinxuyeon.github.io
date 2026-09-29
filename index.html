@@ -115,7 +115,7 @@
   /* ── evidence strip ───────────────────────── */
   .evidence {
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     border-bottom: 1px solid var(--rule);
   }
   .ev { padding: 1.75rem 1.25rem 1.75rem 0; border-right: 1px solid var(--rule-soft); }
@@ -257,6 +257,7 @@
     .evidence { grid-template-columns: 1fr 1fr; }
     .ev { border-right: 0; padding: 1.25rem 0; border-bottom: 1px solid var(--rule-soft); }
     .ev:not(:first-child) { padding-left: 0; }
+    .ev:first-child { grid-column: 1 / -1; }
     .skills dd { margin-bottom: 0.75rem; }
     .mast { padding-top: 3rem; }
   }
@@ -289,10 +290,6 @@
     <div class="ev">
       <b>4개</b>
       <span>재직 중 프론트엔드를<br>전담한 프로젝트</span>
-    </div>
-    <div class="ev">
-      <b>0 → 533</b>
-      <span>테스트가 없던 저장소에<br>Vitest·CI를 들인 뒤</span>
     </div>
     <div class="ev">
       <b>2건</b>
