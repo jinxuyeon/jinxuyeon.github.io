@@ -308,7 +308,7 @@
         <span class="lbl">01 / 안전망</span>
         <div>
           <h3>회귀 방지 장치를 스스로 깝니다</h3>
-          <p>테스트가 0개고 CI가 프론트를 검사하지 않던 저장소에 Vitest와 검사 워크플로를 직접 넣었습니다. 커밋 메시지에는 “테스트를 아무도 강제하지 않던 것”이라고 적었습니다.</p>
+          <p>테스트가 없고 CI가 프론트를 검사하지 않던 저장소에 Vitest와 검사 워크플로를 직접 넣었습니다. 커밋 메시지에는 “테스트를 아무도 강제하지 않던 것”이라고 적었습니다.</p>
         </div>
       </div>
       <div class="habit">
@@ -321,8 +321,8 @@
       <div class="habit">
         <span class="lbl">03 / 계약</span>
         <div>
-          <h3>백엔드를 기다리지 않습니다</h3>
-          <p>MSW 목으로 화면을 먼저 완성하고 실서버가 붙으면 OpenAPI 명세에서 타입을 생성해 계약이 어긋난 곳을 타입 검사 단계에서 잡습니다.</p>
+          <h3>계약이 바뀌면 타입 검사가 먼저 깨지게 합니다</h3>
+          <p>MSW 목으로 화면을 만들고, 실서버가 붙으면 응답 타입을 백엔드 OpenAPI 명세에서 생성해 계약이 어긋난 곳을 타입 검사 단계에서 잡습니다. 사내 협업툴에서는 이렇게 게시판 API 불일치 3건이 드러났습니다.</p>
         </div>
       </div>
       <div class="habit">
@@ -465,8 +465,7 @@
         </a>
         <figcaption>
           <b>스테이지 제출 폼</b>
-          배포처마다 실제 제약을 함께 적었습니다. 무료 플랜이 30일 뒤 내려가 5주 시즌을 못 버티는 곳 같은 것입니다.
-          아래는 개인정보·AI 표시 자가점검 항목입니다.
+          빌더 선택과 출시 전 점검. 아래는 개인정보·AI 표시 자가점검 항목입니다.
         </figcaption>
       </figure>
       <figure>
@@ -489,7 +488,7 @@
       <span class="lbl">재직 · 프론트엔드</span>
       <div>
         <h2>누띠 사진 놀이터</h2>
-        <p class="sub">강아지 사진을 AI로 바꿔 주고 간식 계산기와 쇼핑몰로 이어 주는 마케팅용 웹 서비스(<a href="https://play.nutti.co.kr">play.nutti.co.kr</a>). <strong>사용자 화면 11개</strong>를 맡았고, 클릭 이벤트를 백엔드 지표 API와 GA4에 함께 기록해 단계별 유입을 잴 수 있게 했습니다.</p>
+        <p class="sub">강아지 사진을 AI로 바꿔 주고 간식 계산기로 이어 주는 쇼핑몰 유입용 마케팅 도구(<a href="https://play.nutti.co.kr">play.nutti.co.kr</a>). <strong>사용자 화면 11개</strong>를 맡았고, 클릭 이벤트를 백엔드 지표 API와 GA4에 함께 기록해 단계별 유입을 잴 수 있게 했습니다.</p>
         <div class="stack">React · Vite · TypeScript · TanStack Query · MSW</div>
       </div>
     </div>
@@ -550,7 +549,6 @@
         <tbody>
           <tr><td>기존</td><td class="num">직원 수작업 수집, 상시 인력 투입</td></tr>
           <tr><td>전환 후 체제</td><td class="num"><strong>자동 수집 + 검수 1~2인</strong></td></tr>
-          <tr><td>축적 규모</td><td class="num">수만 건 규모의 발견 원장 → 검증 통과분만 큐로</td></tr>
         </tbody>
       </table>
     </div>
@@ -589,7 +587,7 @@
       <span class="lbl">재직 · 프론트엔드</span>
       <div>
         <h2>SNS 댓글봇</h2>
-        <p class="sub">SNS에서 관련 글을 찾아 링크를 알리는 마케팅 웹앱입니다. <strong>사람이 승인 버튼을 눌러야만</strong> 답글이 나갑니다. 자동 게시 봇이 아닙니다.</p>
+        <p class="sub">SNS에서 관련 글을 찾아 링크를 알리는 쇼핑몰 유입용 마케팅 도구입니다. <strong>사람이 승인 버튼을 눌러야만</strong> 답글이 나갑니다. 자동 게시 봇이 아닙니다.</p>
         <div class="stack">React · TypeScript · TanStack Query · Tailwind CSS v4 · 2026.07 ~ 09</div>
       </div>
     </div>
@@ -641,7 +639,8 @@
           </tr>
           <tr>
             <td><strong>모아이 (MoAI)</strong></td>
-            <td>학과 전용 커뮤니티 · React / Spring Boot / AWS</td>
+            <td>학과 전용 커뮤니티 · React<br>
+              <span class="muted">팀 스택은 React · Spring Boot · AWS</span></td>
             <td class="num">4인 팀<br>프론트엔드·배포</td>
           </tr>
           <tr>
