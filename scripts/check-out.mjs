@@ -115,6 +115,7 @@ for (const { route } of pages) {
 // 글꼴 서브셋: 빌드된 HTML에 나오는 글자가 전부 서브셋에 넣은 글자 안에 있는지(빠진 글자는 대체 글꼴로 튄다).
 const fontFile = path.join(out, 'fonts/pretendard-site.woff2');
 if (!existsSync(fontFile)) fail('fonts/pretendard-site.woff2 없음');
+if (!existsSync(path.join(out, 'fonts/source-serif-site.woff2'))) fail('fonts/source-serif-site.woff2 없음');
 const subset = new Set(collectChars(root));
 const htmlFiles = readdirSync(out, { recursive: true })
   .map(String)
