@@ -8,7 +8,7 @@
 - React 19 · TypeScript(strict) · ESLint
 - CSS Modules + CSS 변수 토큰(`src/app/globals.css`). 라이트·다크 두 벌
 - Motion은 토스트 한 곳에만(LazyMotion). 나머지 움직임은 CSS
-- 글꼴: Pretendard(사이트 글자만 남긴 가변 글꼴 한 파일, 자체 호스팅), Instrument Serif·JetBrains Mono(`next/font`, 라틴 서브셋)
+- 글꼴: Pretendard(사이트 글자만 남긴 가변 글꼴 한 파일, 자체 호스팅), Instrument Serif·Reddit Mono(`next/font`, 라틴 서브셋)
 
 ## 로컬에서
 
