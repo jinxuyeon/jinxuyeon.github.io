@@ -29,7 +29,7 @@
     'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo',
     'Noto Sans KR', 'Malgun Gothic', sans-serif;
   --font-serif: var(--font-instrument), 'Times New Roman', serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-mono: var(--font-reddit), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --gutter: clamp(20px, 5.5vw, 96px);
   --max: clamp(1240px, 70.9vw, 1360px);

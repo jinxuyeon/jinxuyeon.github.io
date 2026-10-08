@@ -78,7 +78,7 @@ const palettes = (['light', 'dark'] as const).map((theme) => {
 const fonts = [
   { name: 'Pretendard', use: '한글 본문·제목. 사이트에 쓰인 글자만 남긴 가변 글꼴 한 파일을 자체 호스팅', license: 'SIL OFL 1.1' },
   { name: 'Instrument Serif', use: '큰 숫자와 인용 부호', license: 'SIL OFL 1.1' },
-  { name: 'JetBrains Mono', use: '영문·숫자 메타 라벨', license: 'SIL OFL 1.1' },
+  { name: 'Reddit Mono', use: '영문·숫자 메타 라벨', license: 'SIL OFL 1.1' },
 ];
 
 export default function ColophonPage() {

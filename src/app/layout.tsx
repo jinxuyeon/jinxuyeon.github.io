@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Instrument_Serif, JetBrains_Mono } from 'next/font/google';
+import { Instrument_Serif, Reddit_Mono } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { preload } from 'react-dom';
 import { Footer } from '@/components/Footer';
@@ -20,10 +20,10 @@ const serif = Instrument_Serif({
   display: 'swap',
   variable: '--font-instrument',
 });
-const mono = JetBrains_Mono({
+const mono = Reddit_Mono({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-jetbrains',
+  variable: '--font-reddit',
 });
 
 export const metadata: Metadata = {
