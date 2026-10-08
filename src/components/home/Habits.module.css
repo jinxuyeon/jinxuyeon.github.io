@@ -21,7 +21,6 @@
 }
 .no {
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: clamp(3rem, 4.2vw, 3.875rem);
   line-height: 0.85;
   color: var(--brand);

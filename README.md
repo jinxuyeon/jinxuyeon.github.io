@@ -8,7 +8,7 @@
 - React 19 · TypeScript(strict) · ESLint
 - CSS Modules + CSS 변수 토큰(`src/app/globals.css`). 라이트·다크 두 벌
 - Motion은 토스트 한 곳에만(LazyMotion). 나머지 움직임은 CSS
-- 글꼴: Pretendard(사이트 글자만 남긴 가변 글꼴 한 파일, 자체 호스팅), Instrument Serif·Reddit Mono(`next/font`, 라틴 서브셋)
+- 글꼴: Pretendard·Source Serif 4(사이트 글자만 남긴 가변 글꼴 한 파일씩, 자체 호스팅), Reddit Mono(`next/font`, 라틴 서브셋)
 
 ## 로컬에서
 
@@ -24,7 +24,7 @@ npm run lint
 npm run typecheck
 ```
 
-`npm run build` 앞에 `scripts/prebuild.mjs`가 돈다. `src/`에 쓰인 글자만 남긴 Pretendard 서브셋을 `public/fonts/`에 만들고,
+`npm run build` 앞에 `scripts/prebuild.mjs`가 돈다. `src/`에 쓰인 글자만 남긴 Pretendard·Source Serif 4 서브셋을 `public/fonts/`에 만들고,
 화면 이미지의 WebP 사본과 페이지별 OG 이미지(`scripts/og.mjs`, 1200×630 PNG)를 만든다.
 네트워크 없이 돌고, 만든 파일은 커밋하지 않는다. 빌드 뒤에는 `scripts/postbuild.mjs`가 404 페이지의 여분 사본을 지운다.
 

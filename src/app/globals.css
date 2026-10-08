@@ -28,7 +28,7 @@
   --font-sans:
     'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo',
     'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  --font-serif: var(--font-instrument), 'Times New Roman', serif;
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --font-mono: var(--font-reddit), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --gutter: clamp(20px, 5.5vw, 96px);
@@ -89,6 +89,14 @@
 }
 
 /* ─── 글꼴 ─────────────────────────────────────────────── */
+/* 큰 숫자·인용 부호용 세리프. 쓰인 글자만 남기고 굵기는 400에 고정, 광학 크기(opsz) 축만 남긴 한 파일(scripts/prebuild.mjs). layout이 preload한다. */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/source-serif-site.woff2') format('woff2-variations'), url('/fonts/source-serif-site.woff2') format('woff2');
+}
 /* Pretendard 가변 글꼴을 사이트에 쓰인 글자만 남겨 자른 한 파일(scripts/prebuild.mjs). layout이 preload한다. */
 @font-face {
   font-family: 'Pretendard Variable';
@@ -318,7 +326,6 @@ a {
 /* 영문 한두 단어 악센트 */
 .serif {
   font-family: var(--font-serif);
-  font-style: italic;
   font-weight: 400;
   letter-spacing: -0.01em;
 }

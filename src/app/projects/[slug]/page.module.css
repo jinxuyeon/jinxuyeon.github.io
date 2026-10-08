@@ -117,7 +117,6 @@
 }
 .factValue {
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: clamp(3rem, 4.9vw, 4.1875rem);
   line-height: 0.9;
   letter-spacing: -0.02em;
@@ -366,7 +365,6 @@
   top: clamp(20px, 2.6vw, 32px);
   left: -0.04em;
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: clamp(4.25rem, 6.3vw, 5.625rem);
   line-height: 0.8;
   color: var(--brand);

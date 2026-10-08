@@ -1,5 +1,5 @@
 // next build 전에 도는 준비 단계. 결과물은 전부 public/ 아래에 생기고 git에는 올리지 않는다.
-//   1) Pretendard 가변 글꼴을 사이트에 쓰인 글자만 남겨 한 파일로 자르기(public/fonts/)
+//   1) Pretendard·Source Serif 4 가변 글꼴을 사이트에 쓰인 글자만 남겨 한 파일씩 자르기(public/fonts/)
 //   2) 화면 이미지의 WebP 사본(원본 폭 + 800px 폭)
 //      카드 썸네일은 데이터(thumbCrop)에 적힌 구역만 잘라 `<파일>-thumb.webp`로
 //   3) 배경 그레인용 256px 노이즈 PNG
@@ -34,6 +34,19 @@ async function subsetFonts() {
   console.log(
     `fonts   Pretendard Variable ${[...chars].length}자, 굵기 ${WEIGHT_RANGE.min}~${WEIGHT_RANGE.max} → ${(out.length / 1024).toFixed(0)}KB`,
   );
+}
+
+// 큰 숫자·인용 부호용 세리프. 40px 넘는 자리에만 쓰므로 광학 크기(opsz) 축은 남기고 굵기는 400에 고정한다.
+// 라틴 파일이라 한글은 애초에 없고, 남는 건 숫자·문장부호·영문 100자 남짓이다. globals.css의 @font-face와 짝.
+async function subsetSerif() {
+  const src = path.join(root, 'node_modules/@fontsource-variable/source-serif-4/files/source-serif-4-latin-opsz-normal.woff2');
+  const chars = collectChars(root);
+  const out = await subsetFont(await readFile(src), chars, {
+    targetFormat: 'woff2',
+    variationAxes: { wght: 400, opsz: { min: 8, max: 60 } },
+  });
+  await writeFile(path.join(pub, 'fonts', 'source-serif-site.woff2'), out);
+  console.log(`fonts   Source Serif 4 굵기 400 고정, opsz 8~60 → ${(out.length / 1024).toFixed(0)}KB`);
 }
 
 async function isFresh(out, src) {
@@ -95,6 +108,7 @@ async function makeGrain() {
 }
 
 await subsetFonts();
+await subsetSerif();
 await convertImages();
 await makeThumbs();
 await makeGrain();
