@@ -219,7 +219,7 @@ export const projects: Project[] = [
       { label: '화면', value: 36 },
       { label: 'API 라우트', value: 12 },
       { label: 'DB 모델', value: 45 },
-      { label: '테스트', value: 595 },
+      { label: '테스트', value: 598 },
     ],
     card: {
       did: '3인 팀의 유일한 개발자로, 기획자의 ERD를 받아 화면부터 DB·배포까지',
