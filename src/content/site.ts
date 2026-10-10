@@ -31,6 +31,16 @@ export const lead = {
     ['화면을 그리는', '일부터'],
     ['API 계약과', '회귀 방지까지'],
   ] as const,
+  /**
+   * 히어로 아래 핵심 숫자 네 개. 처음 보는 사람이 요약을 숫자로 먼저 읽게 한다(2026-10-11, 이력서 리뷰 반영).
+   * 전부 사례 본문·카드 facts에 있는 값이고, 값은 세리프 글꼴이라 영문·숫자·기호만 쓴다(한글은 label·unit에).
+   */
+  proof: [
+    { value: '4', unit: '개', label: '실무 프로젝트 프론트엔드 전담', href: '#work' },
+    { value: '0 → 533', label: '테스트 없던 저장소에 테스트·CI', href: '/projects/nutti/#decision' },
+    { value: '3', unit: '건', label: '타입 생성으로 드러난 API 불일치', href: '/projects/collab-tool/#contract' },
+    { value: '95~100 → 21~46', unit: 'ms', label: '채팅 새 글 렌더링, 개발 빌드 실측', href: '/projects/collab-tool/#perf' },
+  ] as const,
 };
 
 export const career = [
@@ -85,6 +95,13 @@ export const habits: Habit[] = [
     title: '눈으로 찾은 문제는 검사로 만듭니다',
     body: 'AI로 빠르게 만들수록 확인을 사람 눈에 맡기지 않습니다. 시안과의 스타일 차이, CSP 위반, 적용되지 않는 CSS 규칙, Windows에서만 깨지는 한글 글꼴을 헤드리스 Chrome 검사로 만들어 두었습니다.',
     proof: { slug: 'proovit', anchor: 'checks', title: 'PROOVIT' },
+  },
+  {
+    no: '05',
+    label: '소통',
+    title: '위험은 구현보다 먼저 이슈로 짚습니다',
+    body: '여러 건을 한 번에 발송하면 같은 문구가 N건에 그대로 실려 나가는 구조였습니다. 기술적으로는 정상이지만 플랫폼에서는 스팸이라 구현 전에 이슈로 짚었고, 백엔드가 건별 렌더 API를 내자 화면을 건별 문구로 바꿨습니다. 서버가 없는 기능은 목으로 화면과 API 계약을 먼저 제안합니다.',
+    proof: { slug: 'comment-bot', anchor: 'decision', title: 'SNS 댓글봇' },
   },
 ];
 

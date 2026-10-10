@@ -18,9 +18,12 @@ export const projects: Project[] = [
       '문서, 채팅, 게시판, AI를 한 앱으로 묶어 회사 서버 안에서만 돌게 만든 협업툴입니다. 실시간 공동 편집 문서, 채널·DM 채팅, 등급별 게시판, 파일 첨부와 자료실, 전자결재·근태, ⌘K 통합 검색, CRM, 프로젝트 칸반보드, 관리자 콘솔의 **프론트엔드 전체**를 맡았습니다. 전자결재·근태·CRM은 백엔드가 들어와 계약을 맞췄고 실서버 확인 전입니다. 프로젝트 칸반보드는 백엔드가 붙기 전이라 목으로만 돕니다. 사내 파일럿 준비 중입니다.',
     role: '프론트엔드 전체',
     team: EMPLOYED_TEAM,
+    period: '2026.07 ~',
     stack: ['React 19', 'Vite', 'TanStack Query', 'TipTap', 'Yjs', 'Tailwind CSS v4', 'Tauri 2'],
+    // 카드 이야기(소켓·배지)와 이어지는 숫자가 없어 전부 상세 머리에만 둔다
     facts: [
       { value: 3, unit: '건', label: '타입 생성으로 드러난 실서버 불일치', hi: true, onCard: false },
+      { prefix: '95~100 → ', value: '21~46', unit: 'ms', label: '300줄 방 새 글 렌더링 (개발 빌드 실측)', onCard: false },
       { value: 427, label: '프론트엔드 테스트', onCard: false },
       { value: 2, label: '웹 + Windows 데스크톱', onCard: false },
     ],
@@ -202,6 +205,7 @@ export const projects: Project[] = [
       'AI로 만든 서비스를 실제 지표로 겨루는 시즌제 리그 플랫폼. 3인 팀의 **유일한 개발자**로 기획자의 ERD를 받아 화면부터 DB·배포까지 맡았습니다. [proovit.kr](https://proovit.kr)에서 사전 신청을 받고 있습니다.',
     role: '유일한 개발자 · 화면부터 DB·배포까지',
     team: '3인 팀',
+    period: '2026.08 ~',
     stack: [
       'Next.js 16 (App Router)',
       'TypeScript',
@@ -373,6 +377,7 @@ export const projects: Project[] = [
       '강아지 사진을 AI로 바꿔 주고 간식 계산기로 이어 주는 쇼핑몰 유입용 마케팅 도구(play.nutti.co.kr, 현재 비활성). **사용자 화면 11개**를 맡았고, 클릭 이벤트를 백엔드 지표 API와 GA4에 함께 기록해 단계별 유입을 잴 수 있게 했습니다.',
     role: '사용자 화면 11개',
     team: EMPLOYED_TEAM,
+    period: '2026.08 ~ 09',
     stack: ['React', 'Vite', 'TypeScript', 'TanStack Query', 'MSW', 'Vitest'],
     facts: [
       { prefix: '0 → ', value: 533, label: '테스트', hi: true },
@@ -468,8 +473,14 @@ export const projects: Project[] = [
       '기업 IR 연락처를 자동 수집하고 **직원은 검수만** 하는 시스템. 제가 맡은 검수 웹앱이 검수 직원이 쓰는 유일한 화면입니다. 2026년 10월 기준으로 **발견 원장 약 30만 건, 보유 기업 약 6만 사, 검수 큐 약 6만 건**을 다룹니다.',
     role: '검수 웹앱',
     team: EMPLOYED_TEAM,
+    period: '2026.06 ~ 09',
     stack: ['React', 'TypeScript', 'Tailwind CSS v4'],
-    facts: [],
+    // 카드에는 전후 비교(compare)만 두고 숫자는 상세 머리에. 데이터 규모는 README 규칙대로 대략값만.
+    facts: [
+      { value: 12, unit: '열', label: '가로 스크롤 없이 한 화면에 넣은 검수 표', hi: true, onCard: false },
+      { value: 7, unit: '종', label: '줄에서 바로 고치는 입력', onCard: false },
+      { value: 30, unit: '만 건', label: '발견 원장 (대략, 2026.10 기준)', onCard: false },
+    ],
     compare: [
       { label: '기존', text: '직원 수작업 수집, 상시 인력 투입' },
       { label: '전환 후 체제', text: '**자동 수집 + 검수 1~2인**' },
