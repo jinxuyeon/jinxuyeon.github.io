@@ -70,20 +70,23 @@ export function Hero() {
             </a>
           </div>
 
-          {/* 핵심 숫자 네 개. 값은 사례 본문과 같은 근거이고, 각 항목이 그 사례로 이어진다. */}
-          <ul role="list" className={styles.proof} aria-label="핵심 숫자">
-            {lead.proof.map((f) => (
-              <li key={f.label}>
-                <Link href={f.href} className={styles.proofLink}>
-                  <span className={styles.proofValue}>
-                    {f.value}
-                    {'unit' in f && f.unit ? <span className={styles.proofUnit}>{f.unit}</span> : null}
-                  </span>
-                  <span className={styles.proofLabel}>{f.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* 핵심 숫자 네 개. 값은 사례 본문과 같은 근거이고, 각 항목이 그 사례로 이어진다.
+              선과 위 여백은 감싸는 div에 둔다. ul에 주면 전역의 ul[role='list'] { padding: 0 } 초기화가 이긴다. */}
+          <div className={styles.proof}>
+            <ul role="list" className={styles.proofList} aria-label="핵심 숫자">
+              {lead.proof.map((f) => (
+                <li key={f.label}>
+                  <Link href={f.href} className={styles.proofLink}>
+                    <span className={styles.proofValue}>
+                      {f.value}
+                      {'unit' in f && f.unit ? <span className={styles.proofUnit}>{f.unit}</span> : null}
+                    </span>
+                    <span className={styles.proofLabel}>{f.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
