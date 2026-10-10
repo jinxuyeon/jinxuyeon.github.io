@@ -142,15 +142,19 @@
 }
 
 /* ─── 핵심 숫자 네 개 ────────────────────── */
-/* 소개 문장·버튼 아래 한 줄. 상세 머리의 「주요 숫자」와 같은 어법(세리프 값 + 작은 설명)이나 크기만 작다. */
+/* 소개 문장·버튼 아래 한 줄. 상세 머리의 「주요 숫자」와 같은 어법(세리프 값 + 작은 설명)이나 크기만 작다.
+   띠의 아래 여백은 히어로 padding-bottom + 프로젝트 섹션 padding-top(합 clamp(32px, 4vw, 56px), 낮은 화면에서 24px)이다.
+   위도 같은 값으로 두면 숫자가 띠의 헤어라인과 프로젝트 섹션 헤어라인 사이 가운데에 온다. 여백은 ul이 아니라 감싸는 div에 준다(ul[role='list'] 초기화). */
 .proof {
   grid-column: 1 / -1;
+  padding-top: clamp(32px, 4vw, 56px);
+  border-top: 1px solid var(--line);
+}
+.proofList {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px clamp(16px, 2.4vw, 32px);
+  gap: 20px clamp(16px, 2.4vw, 32px);
   margin: 0;
-  padding-top: clamp(16px, 2vw, 24px);
-  border-top: 1px solid var(--line);
 }
 .proofLink {
   display: grid;
@@ -200,6 +204,10 @@
     margin-top: 0;
     padding-top: 16px;
   }
+  /* 아래 여백도 16px + 8px(Work.module.css)로 줄어든다 */
+  .proof {
+    padding-top: 24px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -209,7 +217,7 @@
   .ctas > * {
     flex: 1 1 auto;
   }
-  .proof {
+  .proofList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
