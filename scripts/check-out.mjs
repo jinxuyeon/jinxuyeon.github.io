@@ -137,5 +137,5 @@ if (failures.length) {
   process.exit(1);
 }
 console.log(
-  `✓ out/ 검사 통과 — 페이지 ${pages.length}개, 원본 이미지 ${originals.length}장, 색 토큰 일치, 글꼴 서브셋 ${subset.size}자`,
+  `✓ out/ 검사 통과: 페이지 ${pages.length}개, 원본 이미지 ${originals.length}장, 색 토큰 일치, 글꼴 서브셋 ${subset.size}자`,
 );

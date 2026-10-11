@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMeta({
   description: profile.description,
   ogDescription: profile.ogDescription,
   og: 'home',
-  ogAlt: '진수연 — 프론트엔드 개발자',
+  ogAlt: '진수연 · 프론트엔드 개발자',
 });
 
 // 대표 사례를 첫 화면 바로 아래에 둔다. 「반복해서 하는 것」은 카드를 본 뒤에 읽혀야 링크가 산다.

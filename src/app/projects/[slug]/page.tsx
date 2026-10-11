@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     title: p.title,
     description: p.summary,
     og: p.slug,
-    ogAlt: `${p.title} — ${p.summary}`,
+    ogAlt: `${p.title}: ${p.summary}`,
   });
 }
 
@@ -79,7 +79,7 @@ function Screens({ shots, note, wide }: { shots: Shot[]; note?: string; wide: bo
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="sr-only"> — 원본 이미지 새 탭에서 열기</span>
+                <span className="sr-only">, 원본 이미지 새 탭에서 열기</span>
               </a>
               <figcaption>
                 <strong>{s.title}</strong>

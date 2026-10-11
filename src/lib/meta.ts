@@ -3,7 +3,7 @@ import { SITE_URL } from '@/content/site';
 
 export const SITE_NAME = '진수연 포트폴리오';
 /** 홈의 탭·미리보기 제목. 여러 지원서를 탭으로 열어 두어도 직무가 보이게 */
-const HOME_TITLE = '진수연 — 프론트엔드 개발자 포트폴리오';
+const HOME_TITLE = '진수연 · 프론트엔드 개발자 포트폴리오';
 
 /**
  * 페이지마다 canonical·og:url(끝 슬래시)·og:image(절대 URL PNG)를 맞춘다.
