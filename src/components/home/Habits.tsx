@@ -26,7 +26,7 @@ export function Habits() {
                 <span className="u-link">
                   {h.proof.title}에서 보기
                   {/* 같은 이름의 링크가 여럿이라 링크 목록으로 훑을 때 구별되게 */}
-                  <span className="sr-only"> — {h.label}</span>
+                  <span className="sr-only">, {h.label}</span>
                 </span>
                 <span className={styles.arrow} aria-hidden="true">
                   →

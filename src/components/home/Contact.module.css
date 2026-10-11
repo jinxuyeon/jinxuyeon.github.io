@@ -60,7 +60,7 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-/* 24px 굵게 — 연락 섹션은 큰 글자 기준 대비만 통과한다 */
+/* 24px 굵게. 연락 섹션은 큰 글자 기준 대비만 통과한다 */
 .pill {
   display: inline-flex;
   align-items: center;
