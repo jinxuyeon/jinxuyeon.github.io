@@ -843,6 +843,155 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'iheaven',
+    title: '아이헤븐',
+    kind: '재직 · 프론트엔드',
+    featured: true,
+    summary: '김해 반려동물 장례식장의 새 회사 사이트',
+    intro:
+      '김해 반려동물 장례식장 아이헤븐의 새 회사 사이트입니다. 옛 사이트의 내용을 옮겨 Astro 정적 사이트로 다시 만들었습니다. 제가 **메인 시안부터 첫 공개 배포까지** 맡았고, 이후 페이지 추가와 도메인 연결은 함께 일하는 백엔드 개발자가 이어받았습니다. 사이트는 [i-heaven.kr](https://i-heaven.kr), 코드는 [github.com/N-utti/iheaven](https://github.com/N-utti/iheaven)에서 볼 수 있습니다.',
+    role: '메인·루세떼 페이지 · 모바일 메뉴 · 배포 설정',
+    team: EMPLOYED_TEAM,
+    period: '2026.10',
+    stack: ['Astro', 'CSS', 'GitHub Pages'],
+    facts: [{ value: 3, unit: '일', label: '메인 시안에서 공개 배포·QA까지', hi: true, onCard: false }],
+    card: {
+      did: '메인 시안과 구현, 루세떼 상세, 개인정보 처리방침, 모바일 메뉴, 배포 설정',
+      hardLabel: '전제',
+      hard: '장례 사이트라 움직임은 차분해야 하고, 화면은 모바일을 기준으로 잡아야 했습니다.',
+      result: '메인 시안부터 공개 배포와 QA까지 사흘이 걸렸고, 지금 실제 사이트로 공개돼 있습니다.',
+    },
+    sections: [
+      {
+        kind: 'beat',
+        id: 'scope',
+        label: '맡은 범위',
+        group: 'story',
+        blocks: [
+          {
+            type: 'p',
+            text: '옛 사이트의 전 페이지를 모아 문구와 가격을 정리하고, 메인 시안을 만들어 Astro로 구현한 뒤 GitHub Pages에 올렸습니다. 메인, 루세떼 상세, 개인정보 처리방침, 모바일 메뉴가 제 몫입니다.',
+          },
+          {
+            type: 'p',
+            text: '장례서비스·헤븐 하우스 페이지, 히어로 슬라이더, 섹션 단위 스크롤, 도메인 연결은 백엔드 개발자가 맡았습니다.',
+          },
+        ],
+      },
+      {
+        kind: 'beat',
+        id: 'motion',
+        label: '움직임을 덜어 낸 판단',
+        group: 'story',
+        blocks: [
+          { type: 'p', text: '장례 사이트라 눈에 띄는 효과를 걷어 내는 쪽으로 판단했습니다.' },
+          {
+            type: 'list',
+            items: [
+              '루세떼 첫 화면의 글 등장을 0.7초·18px에서 **1.6초·10px**로, 페이지 전환을 0.25초에서 **0.8초**로 늦췄습니다.',
+              '카드 호버의 사진 뜨기, 그림자, 화살표 밀기를 지우고 제목 색 변화만 남겼습니다.',
+              '글 등장, 페이지 전환, 카드 자동 넘김은 `prefers-reduced-motion` 설정이면 돌지 않습니다.',
+            ],
+          },
+        ],
+      },
+      {
+        kind: 'beat',
+        id: 'mobile',
+        label: '모바일 기준',
+        group: 'story',
+        blocks: [
+          {
+            type: 'list',
+            items: [
+              '헤더의 전화번호는 하단 고정 바와 겹쳐 빼고 그 자리에 햄버거 메뉴를 넣었습니다. `display: none`은 전환이 안 되어 `visibility`와 `clip-path`로 여닫고, 닫힌 메뉴는 탭 이동과 스크린리더에서도 빠지게 했습니다.',
+              '서비스 카드 4장은 CSS `scroll-snap` 가로 스크롤로 만들고, 3.5초마다 넘기는 짧은 스크립트를 **라이브러리 없이** 붙였습니다. 카드 줄이 화면에 60% 이상 보일 때만 돌고 손을 대면 6초 쉽니다.',
+              '누를 때 회색으로 깜빡이는 탭 하이라이트는 `html`에서 꺼서 새로 만드는 링크에도 적용되게 했습니다.',
+            ],
+          },
+        ],
+      },
+      {
+        kind: 'beat',
+        id: 'qa',
+        label: '점검',
+        group: 'story',
+        blocks: [
+          {
+            type: 'p',
+            text: '375px에서 페이지가 옆으로 흔들리던 원인을 찾았습니다. 서비스 카드 줄이 화면보다 **3px** 넓었고, `margin-inline: auto` 때문에 grid가 폭을 늘려 맞추지 않던 것이라 `width: 100%`로 고정했습니다.',
+          },
+          {
+            type: 'p',
+            text: '지금 공개된 다섯 페이지는 375·390·1280px에서 문서 폭이 화면 폭과 같습니다(2026년 11월 라이브 사이트에서 확인).',
+          },
+        ],
+      },
+      {
+        kind: 'beat',
+        id: 'info',
+        label: '사업자 정보와 허가증',
+        group: 'more',
+        blocks: [
+          {
+            type: 'p',
+            text: '하단 사업자 정보와 동물장묘업 허가번호는 사업자등록증·허가증과 대조해 넣고, 허가증은 `<dialog>`로 사이트에서 바로 볼 수 있게 했습니다. 개인정보 처리방침은 개인정보 보호법 기준으로 새로 썼습니다.',
+          },
+        ],
+      },
+      {
+        kind: 'beat',
+        id: 'details',
+        label: '로고, 공유 미리보기, 오시는 길',
+        group: 'more',
+        blocks: [
+          {
+            type: 'p',
+            text: 'PNG 로고를 SVG로 바꿔 고해상도 화면에서도 선명하게 하고, 링크 공유용 OG 메타와 미리보기 이미지를 넣었습니다. 오시는 길의 라벨 칸은 `subgrid`로 가장 긴 라벨에 맞췄습니다.',
+          },
+        ],
+      },
+    ],
+    shots: [
+      {
+        file: 'iheaven-home.jpg',
+        width: 1440,
+        height: 1080,
+        alt: '아이헤븐 메인 첫 화면. 건물 사진 위에 문구와 24시 장례상담 버튼이 있다',
+        title: '메인',
+        caption: '첫 화면에서 바로 전화 상담으로 이어집니다.',
+      },
+      {
+        file: 'iheaven-lucete.jpg',
+        width: 1440,
+        height: 1080,
+        alt: '루세떼 상세 첫 화면. 왼쪽에 소개와 상담 버튼, 오른쪽에 초록빛 루세떼 스톤 사진',
+        title: '루세떼 상세',
+        caption: '글이 1.6초에 걸쳐 차례로 떠오릅니다.',
+      },
+      {
+        file: 'iheaven-mobile.jpg',
+        width: 1440,
+        height: 1080,
+        alt: '폰 화면 세 장. 메인, 펼친 메뉴, 장례비용 카드',
+        title: '모바일',
+        caption: '메인, 펼친 메뉴, 장례비용 카드.',
+      },
+      {
+        file: 'iheaven-location.jpg',
+        width: 1440,
+        height: 1080,
+        alt: '오시는 길 섹션. 왼쪽에 지도, 오른쪽에 주소와 운영 시간 안내',
+        title: '오시는 길',
+        caption: '라벨 칸은 `subgrid`로 가장 긴 라벨에 맞췄습니다.',
+      },
+    ],
+    shotNote: '2026년 11월 라이브 사이트 화면입니다.',
+    thumb: 0,
+    // 카드 틀이 2:1이다. 헤드라인과 상담 버튼이 들어오는 왼쪽 아래
+    thumbCrop: { left: 40, top: 600, width: 960, height: 480 },
+  },
+  {
     slug: 'haetopia',
     title: '해토피아',
     kind: 'Unity · 인게임 GUI',

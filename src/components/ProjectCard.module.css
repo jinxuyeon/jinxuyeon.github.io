@@ -175,6 +175,10 @@
   aspect-ratio: 4 / 3;
   background: var(--shot-frame);
 }
+/* 반폭 카드는 옆 카드와 높이가 벌어지지 않게 낮게 둔다 */
+.card[data-size='md'] .thumb {
+  aspect-ratio: 2 / 1;
+}
 .thumb img {
   width: 100%;
   height: 100%;
