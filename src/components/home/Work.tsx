@@ -6,8 +6,8 @@ import { SectionHeader } from '../SectionHeader';
 import { SepList, splitDots } from '../SepList';
 import styles from './Work.module.css';
 
-/** 앞의 세 장은 전폭, 나머지는 반폭 두 장으로 리듬을 나눈다 */
-const WIDE_CARDS = 3;
+/** 앞의 네 장은 전폭, 나머지는 반폭 두 장으로 리듬을 나눈다 */
+const WIDE_CARDS = 4;
 
 export function Work() {
   return (
