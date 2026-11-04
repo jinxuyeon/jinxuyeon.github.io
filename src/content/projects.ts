@@ -281,7 +281,7 @@ export const projects: Project[] = [
     featured: true,
     summary: 'AI로 만든 서비스를 실제 지표로 겨루는 시즌제 리그 플랫폼',
     intro:
-      'AI로 만든 서비스를 실제 지표로 겨루는 시즌제 리그 플랫폼. 3인 팀의 **유일한 개발자**로 기획자의 ERD를 받아 화면부터 DB·배포까지 맡았습니다. 2026년 10월 운영을 종료했고, 코드는 [github.com/proovit-kr/proovit](https://github.com/proovit-kr/proovit)에 공개돼 있습니다.',
+      'AI로 만든 서비스를 실제 지표로 겨루는 시즌제 리그 플랫폼. 3인 팀의 **유일한 개발자**로 기획자의 ERD를 받아 화면부터 DB·배포까지 맡았습니다. 2026년 10월 운영을 종료했습니다. 사이트는 [proovit.kr](https://proovit.kr)에 남아 있고, 코드는 [github.com/proovit-kr/proovit](https://github.com/proovit-kr/proovit)에 공개돼 있습니다.',
     role: '유일한 개발자 · 화면부터 DB·배포까지',
     team: '3인 팀',
     period: '2026.08 ~ 10',
