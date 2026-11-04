@@ -778,7 +778,7 @@ export const projects: Project[] = [
     card: {
       did: '대시보드, 매칭 상세·승인, 소스/키워드/템플릿/계정 관리, 사용자 관리, 감사 로그, Threads OAuth 연동까지 화면 전체',
       hard: '여러 건을 한 번에 승인·발송하면 N건에 같은 문구가 그대로 실려 나가는 구조였습니다. 플랫폼 입장에서는 스팸이고 계정이 정지될 수도 있습니다.',
-      result: 'N건에 같은 문구가 그대로 실려 나가는 위험을 이슈로 짚었고, 백엔드가 건별 렌더 API를 내자 발송 전에 각 건의 실제 문구를 확인할 수 있게 바꿨습니다.',
+      result: 'N건에 같은 문구가 그대로 실려 나가는 위험을 PR에 적었고, 백엔드가 건별 렌더 API를 내자 발송 전에 각 건의 실제 문구를 확인할 수 있게 바꿨습니다.',
     },
     sections: [
       {
@@ -813,7 +813,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: 'p',
-            text: '이 위험을 이슈로 짚었습니다. 백엔드가 건별 렌더 API를 내자 화면을 ==건별 문구==로 바꿨습니다.',
+            text: '이 위험을 구현 전에 PR에 적었습니다. 백엔드가 건별 렌더 API를 내자 화면을 ==건별 문구==로 바꿨습니다.',
           },
         ],
       },
@@ -847,9 +847,9 @@ export const projects: Project[] = [
     title: '아이헤븐',
     kind: '재직 · 프론트엔드',
     featured: true,
-    summary: '김해 반려동물 장례식장의 새 회사 사이트',
+    summary: '김해 반려동물 장례식장 홈페이지',
     intro:
-      '김해 반려동물 장례식장 아이헤븐의 새 회사 사이트입니다. 옛 사이트의 내용을 옮겨 Astro 정적 사이트로 다시 만들었습니다. 제가 **메인 시안부터 첫 공개 배포까지** 맡았고, 이후 페이지 추가와 도메인 연결은 함께 일하는 백엔드 개발자가 이어받았습니다. 사이트는 [i-heaven.kr](https://i-heaven.kr), 코드는 [github.com/N-utti/iheaven](https://github.com/N-utti/iheaven)에서 볼 수 있습니다.',
+      '김해 반려동물 장례식장 아이헤븐의 새 홈페이지입니다. 옛 사이트의 내용을 옮겨 Astro 정적 사이트로 다시 만들었습니다. 제가 **메인 시안부터 첫 공개 배포까지** 맡았고, 이후 페이지 추가와 도메인 연결은 함께 일하는 백엔드 개발자가 이어받았습니다. 사이트는 [i-heaven.kr](https://i-heaven.kr), 코드는 [github.com/N-utti/iheaven](https://github.com/N-utti/iheaven)에서 볼 수 있습니다.',
     role: '메인·루세떼 페이지 · 모바일 메뉴 · 배포 설정',
     team: EMPLOYED_TEAM,
     period: '2026.10',
@@ -1053,7 +1053,7 @@ export const otherProjects: MinorProject[] = [
     title: '모아이 (MoAI)',
     summary: '학과 전용 커뮤니티',
     detail: '팀 스택은 React · Spring Boot · AWS',
-    role: '4인 팀 · 프론트엔드·배포',
+    role: '중간 합류 · UI/UX 개선',
     stack: ['React'],
   },
   {
