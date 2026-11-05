@@ -132,7 +132,7 @@ export const awards: { when?: string; kind: string; body: string; strong?: boole
   { kind: '입상', body: '부산디지털혁신아카데미 잡페어 (부산정보산업진흥원)' },
 ];
 
-export const language = { label: '어학', body: '토익스피킹 IH (2024.07)' };
+export const language = { label: '어학', body: '토익스피킹 IH (2026.10)' };
 
 /**
  * 홈 섹션(페이지 순서대로). 내비·모바일 메뉴·커맨드 팔레트가 같은 목록을 쓴다. en은 팔레트 검색어로만 쓴다.
