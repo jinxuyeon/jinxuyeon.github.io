@@ -12,5 +12,5 @@ export function tidy(s: string): string {
   return s
     .replace(/(\S)·(?=\S)/g, `$1${WJ}·${WJ}`)
     .replace(/ · /g, `${NBSP}· `)
-    .replace(/([”’」』)])(?=[가-힣])/g, `$1${WJ}`);
+    .replace(/([”’'」』)])(?=[가-힣])/g, `$1${WJ}`);
 }
