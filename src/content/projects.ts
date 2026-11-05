@@ -10,12 +10,12 @@ const EMPLOYED_TEAM = '2인(백엔드 1명과 함께)';
 export const projects: Project[] = [
   {
     slug: 'collab-tool',
-    title: '사내 협업툴',
+    title: '사내 업무 플랫폼',
     kind: '재직 · 프론트엔드',
     featured: true,
-    summary: '문서, 채팅, 게시판, AI를 한 앱으로 묶어 회사 서버 안에서만 돌게 만든 협업툴',
+    summary: '채팅, 문서, 게시판, 근태, 결재, CRM, AI를 한 앱으로 묶어 회사 서버 안에서만 돌게 만든 사내 업무 플랫폼',
     intro:
-      '문서, 채팅, 게시판, AI를 한 앱으로 묶어 회사 서버 안에서만 돌게 만든 협업툴입니다. 실시간 공동 편집 문서, 채널·DM 채팅, 등급별 게시판, 파일 첨부와 자료실, 전자결재·근태, ⌘K 통합 검색, AI 어시스턴트, CRM, 협업 공간(칸반·일정), 관리자 콘솔의 **프론트엔드 전체**를 맡았습니다. 사내 실서버에서 돌고 있고 2026년 10월 28일 MVP를 마쳤습니다. 코드와 [7분 시연 영상](https://github.com/N-utti/zenith/releases/tag/demo-2026-10)은 [github.com/N-utti/zenith](https://github.com/N-utti/zenith)에 공개돼 있습니다.',
+      '채팅, 문서, 게시판, 근태, 결재, CRM, AI를 한 앱으로 묶어 회사 서버 안에서만 돌게 만든 사내 업무 플랫폼입니다. 실시간 공동 편집 문서, 채널·DM 채팅, 등급별 게시판, 파일 첨부와 자료실, 전자결재·근태, ⌘K 통합 검색, AI 어시스턴트, CRM, 협업 공간(칸반·일정), 관리자 콘솔의 **프론트엔드 전체**를 맡았습니다. 사내 실서버에서 돌고 있고 2026년 10월 28일 MVP를 마쳤습니다. 코드와 [7분 시연 영상](https://github.com/N-utti/zenith/releases/tag/demo-2026-10)은 [github.com/N-utti/zenith](https://github.com/N-utti/zenith)에 공개돼 있습니다.',
     role: '프론트엔드 전체',
     team: EMPLOYED_TEAM,
     period: '2026.07 ~',

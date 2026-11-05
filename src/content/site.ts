@@ -86,8 +86,8 @@ export const habits: Habit[] = [
     no: '03',
     label: '계약',
     title: '계약이 바뀌면 타입\u00a0검사가 먼저 깨지게 합니다',
-    body: 'MSW 목으로 화면을 만들고, 실서버가 붙으면 응답 타입을 백엔드 OpenAPI 명세에서 생성해 계약이 어긋난 곳을 타입 검사 단계에서 잡습니다. 사내 협업툴에서는 이렇게 게시판 API 불일치 3건이 드러났습니다.',
-    proof: { slug: 'collab-tool', anchor: 'contract', title: '사내 협업툴' },
+    body: 'MSW 목으로 화면을 만들고, 실서버가 붙으면 응답 타입을 백엔드 OpenAPI 명세에서 생성해 계약이 어긋난 곳을 타입 검사 단계에서 잡습니다. 사내 업무 플랫폼에서는 이렇게 게시판 API 불일치 3건이 드러났습니다.',
+    proof: { slug: 'collab-tool', anchor: 'contract', title: '사내 업무 플랫폼' },
   },
   {
     no: '04',
