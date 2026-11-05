@@ -123,7 +123,7 @@ export const awards: { when?: string; kind: string; body: string; strong?: boole
     when: '2024.11',
     kind: '우수논문상',
     strong: true,
-    body: '한국지능시스템학회 추계학술대회, 「메타버스 기반 대학 캠퍼스 체험 게임 프레임워크 개발」(공저)',
+    body: '한국지능시스템학회 추계학술대회, \'메타버스 기반 대학 캠퍼스 체험 게임 프레임워크 개발\'(공저)',
   },
   { when: '2024.01', kind: '특허 출원', body: '인공지능 사고감지 시스템' },
   { when: '2023.02', kind: '특허 출원', body: '자동 제동 및 동력 보조 수단을 구비한 스마트 유모차' },
