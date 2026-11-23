@@ -18,10 +18,10 @@
   padding-block: clamp(40px, 5.2vw, 80px) clamp(36px, 4.5vw, 60px);
 }
 .title {
-  font-size: clamp(3.375rem, 7.7vw, 7rem);
+  font-size: clamp(2.75rem, 5.6vw, 5rem);
   font-weight: 900;
   line-height: 0.95;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.055em;
   margin-left: -0.03em;
 }
 .rows {
@@ -60,17 +60,18 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-/* 24px 굵게. 연락 섹션은 큰 글자 기준 대비만 통과한다 */
+/* 연락 섹션은 큰 글자 기준 대비만 통과한다(굵은 글자는 18.66px부터 큰 글자).
+   폰에서 버튼 글자(24px)가 메일 주소(22px)보다 커지지 않게 폭을 따라 줄이되 19px 굵게 밑으로는 안 내려간다. */
 .pill {
   display: inline-flex;
   align-items: center;
-  min-height: 56px;
-  padding: 0 24px;
+  min-height: clamp(48px, 3.9vw, 56px);
+  padding: 0 clamp(18px, 1.7vw, 24px);
   border: 2px solid var(--on-contact);
   border-radius: 999px;
   background: transparent;
   color: var(--on-contact);
-  font-size: 1.5rem;
+  font-size: clamp(1.1875rem, 1.7vw, 1.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   cursor: pointer;

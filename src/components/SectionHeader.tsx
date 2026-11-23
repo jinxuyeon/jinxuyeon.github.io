@@ -3,7 +3,7 @@ import styles from './SectionHeader.module.css';
 
 /**
  * 섹션 머리: 헤어라인 + 한글 제목. 제목은 스크롤 연동 줄 마스크로 올라온다.
- * size="sm"은 표·목록·카드가 주인공인 섹션(프로젝트, 기술, 수상·특허)용.
+ * 제목 크기는 어느 섹션이나 같다. size="sm"은 표·목록·카드가 바로 붙는 섹션(프로젝트, 기술, 수상·특허)에서 제목 아래 간격만 줄인다.
  */
 export function SectionHeader({
   id,

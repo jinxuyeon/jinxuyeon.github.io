@@ -4,7 +4,7 @@ import styles from './Contact.module.css';
 
 /**
  * 섹션 전체를 --contact-bg로 뒤집는다. 라이트는 큰 글자 기준 대비만 통과해서
- * 이 안의 글자는 전부 24px 이상으로만 쓴다. 다크는 한 톤 낮춘 색이다(대비는 /colophon/ 표 참조).
+ * 이 안의 글자는 전부 큰 글자(24px 이상, 굵으면 19px 이상)로만 쓴다. 다크는 한 톤 낮춘 색이다(대비는 /colophon/ 표 참조).
  */
 export function Contact() {
   return (
