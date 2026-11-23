@@ -1,5 +1,4 @@
 import type { CSSProperties, ReactNode } from 'react';
-import Link from 'next/link';
 import { lead, profile } from '@/content/site';
 import { Rich } from '../Rich';
 import styles from './Hero.module.css';
@@ -62,30 +61,9 @@ export function Hero() {
             <Rich text={lead.first} />
           </p>
           <div className={styles.ctas}>
-            <a href="#work" className="btn btn-primary">
-              프로젝트 보기 <span className="arrow" aria-hidden="true">→</span>
-            </a>
             <a href="#contact" className="btn btn-ghost">
               연락하기
             </a>
-          </div>
-
-          {/* 핵심 숫자 네 개. 값은 사례 본문과 같은 근거이고, 각 항목이 그 사례로 이어진다.
-              선과 위 여백은 감싸는 div에 둔다. ul에 주면 전역의 ul[role='list'] { padding: 0 } 초기화가 이긴다. */}
-          <div className={styles.proof}>
-            <ul role="list" className={styles.proofList} aria-label="핵심 숫자">
-              {lead.proof.map((f) => (
-                <li key={f.label}>
-                  <Link href={f.href} className={styles.proofLink}>
-                    <span className={styles.proofValue}>
-                      {f.value}
-                      {'unit' in f && f.unit ? <span className={styles.proofUnit}>{f.unit}</span> : null}
-                    </span>
-                    <span className={styles.proofLabel}>{f.label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

@@ -20,16 +20,13 @@
   justify-content: space-between;
   gap: 8px 24px;
 }
+/* 제목 크기는 섹션마다 같다. size는 제목 아래 간격만 가른다.
+   바로 아래 오는 가장 큰 줄(소개 문장·습관 제목 29px, 기술 「주력」 행 24px)보다 한 단계 크다. */
 .title {
-  font-size: clamp(2.125rem, 4.2vw, 3.6875rem);
+  font-size: clamp(1.625rem, 2.8vw, 2.5rem);
   font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1.08;
-}
-/* 작은 제목도 바로 아래 목록의 가장 큰 줄(기술의 「주력」 행)보다 한 단계 크게 */
-.head[data-size='sm'] .title {
-  font-size: clamp(1.5rem, 2.4vw, 2.125rem);
   letter-spacing: -0.04em;
+  line-height: 1.1;
 }
 .aside {
   font-size: 0.9375rem;

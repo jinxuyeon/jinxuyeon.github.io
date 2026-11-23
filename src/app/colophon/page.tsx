@@ -63,7 +63,7 @@ const rows: { use: string; fg: TokenName; bg: TokenName; min: { light: number; d
   { use: '링크·작은 강조', fg: 'accentInk', bg: 'bg', min: { light: 4.5, dark: 4.5 } },
   { use: '버튼 글자', fg: 'onAccent', bg: 'accentInk', min: { light: 4.5, dark: 4.5 } },
   { use: '포인트(큰 글자·그래픽만)', fg: 'brand', bg: 'bg', min: { light: 3, dark: 3 } },
-  // 라이트의 연락 섹션은 큰 글자 기준만 통과해서 24px 이상만 쓴다. 다크는 한 톤 낮춰 작은 글자도 통과한다.
+  // 라이트의 연락 섹션은 큰 글자 기준만 통과해서 24px 이상(굵으면 19px 이상)만 쓴다. 다크는 한 톤 낮춰 작은 글자도 통과한다.
   { use: '연락 섹션', fg: 'onContact', bg: 'contactBg', min: { light: 3, dark: 4.5 } },
   { use: 'UI 경계선', fg: 'lineStrong', bg: 'bg', min: { light: 3, dark: 3 } },
 ];

@@ -1,6 +1,8 @@
 .hero {
   padding-top: calc(var(--nav-h) + clamp(28px, 5vh, 56px));
-  padding-bottom: clamp(20px, 2.4vw, 32px);
+  /* 소개 문장·버튼 줄이 위 헤어라인(.foot)과 프로젝트 섹션 머리의 헤어라인 사이 가운데에 오게,
+     프로젝트 섹션의 padding-top에 이만큼만 더한다 */
+  padding-bottom: 6px;
 }
 .grid {
   display: grid;
@@ -135,59 +137,17 @@
   color: var(--ink);
   font-weight: 700;
 }
+/* 「연락하기」는 헤더 메뉴가 접히는 폭(Nav.module.css의 859px 이하)에서만 보인다.
+   넓은 화면에서는 헤더의 「연락」과 한 화면에 둘이 되므로 숨긴다. */
 .ctas {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 10px;
 }
-
-/* ─── 핵심 숫자 네 개 ────────────────────── */
-/* 소개 문장·버튼 아래 한 줄. 상세 머리의 「주요 숫자」와 같은 어법(세리프 값 + 작은 설명)이나 크기만 작다.
-   띠의 아래 여백은 히어로 padding-bottom + 프로젝트 섹션 padding-top(합 clamp(32px, 4vw, 56px), 낮은 화면에서 24px)이다.
-   위도 같은 값으로 두면 숫자가 띠의 헤어라인과 프로젝트 섹션 헤어라인 사이 가운데에 온다. 여백은 ul이 아니라 감싸는 div에 준다(ul[role='list'] 초기화). */
-.proof {
-  grid-column: 1 / -1;
-  padding-top: clamp(32px, 4vw, 56px);
-  border-top: 1px solid var(--line);
-}
-.proofList {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px clamp(16px, 2.4vw, 32px);
-  margin: 0;
-}
-.proofLink {
-  display: grid;
-  gap: 4px;
-  align-content: start;
-  color: inherit;
-  text-decoration: none;
-}
-.proofValue {
-  font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 2vw, 1.875rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  color: var(--ink);
-}
-.proofUnit {
-  margin-left: 0.1em;
-  font-family: var(--font-sans);
-  font-size: 0.5em;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--accent-ink);
-}
-.proofLabel {
-  font-size: 0.8125rem;
-  line-height: 1.4;
-  color: var(--muted);
-  text-wrap: pretty;
-}
-.proofLink:hover .proofLabel,
-.proofLink:focus-visible .proofLabel {
-  color: var(--ink);
+@media (max-width: 859px) {
+  .ctas {
+    display: flex;
+  }
 }
 
 /* 높이가 낮은 가로 화면(1366×768 노트북, 125% 배율의 1920×1080 노트북 등. 뷰포트 높이 650~800px)에서
@@ -195,7 +155,7 @@
 @media (min-width: 900px) and (max-height: 820px) {
   .hero {
     padding-top: calc(var(--nav-h) + 16px);
-    padding-bottom: 16px;
+    padding-bottom: 8px;
   }
   .grid {
     gap: 16px;
@@ -204,20 +164,10 @@
     margin-top: 0;
     padding-top: 16px;
   }
-  /* 아래 여백도 16px + 8px(Work.module.css)로 줄어든다 */
-  .proof {
-    padding-top: 24px;
-  }
 }
 
 @media (max-width: 767px) {
   .foot {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .ctas > * {
-    flex: 1 1 auto;
-  }
-  .proofList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
