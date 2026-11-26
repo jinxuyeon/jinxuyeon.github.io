@@ -1,10 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { useId, useRef, useState, type CSSProperties } from 'react';
 import { profile, sections } from '@/content/site';
 import { goSection } from '@/lib/section';
-import { LogoMark } from './LogoMark';
 import styles from './MobileMenu.module.css';
 
 /**
@@ -42,9 +40,8 @@ export function MobileMenu() {
 
       <dialog ref={dialogRef} id={id} className={styles.menu} aria-label="메뉴" onClose={() => setOpen(false)}>
         <div className={styles.top}>
-          {/* 닫힌 내비의 로고 자리와 모양을 잇는다(장식) */}
+          {/* 닫힌 내비의 이름 자리와 모양을 잇는다(장식) */}
           <span className={styles.brand} aria-hidden="true">
-            <LogoMark size={28} />
             {profile.name}
           </span>
           <button type="button" className="icon-btn" onClick={close}>
@@ -76,14 +73,6 @@ export function MobileMenu() {
                 </a>
               </li>
             ))}
-            <li className={styles.item} style={{ '--i': sections.length } as CSSProperties}>
-              <Link href="/colophon/" className={styles.link} onClick={close}>
-                <span className={`mono ${styles.no}`} aria-hidden="true">
-                  {no(sections.length)}
-                </span>
-                <span className={styles.label}>이 사이트를 만든 방식</span>
-              </Link>
-            </li>
           </ol>
         </nav>
 

@@ -15,7 +15,7 @@
   justify-content: space-between;
   gap: 16px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
   color: var(--muted);
 }
 .back {
@@ -23,7 +23,7 @@
   gap: 8px;
   font-weight: 600;
   font-size: 0.9375rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .back:hover :global(.u-link) {
   background-size: 100% 1px;
@@ -37,7 +37,7 @@
 .kind {
   font-weight: 700;
   font-size: 0.9375rem;
-  color: var(--accent-ink);
+  color: var(--text);
 }
 .title {
   font-size: clamp(2.3125rem, 5.6vw, 3.875rem);
@@ -65,8 +65,8 @@
   flex-wrap: wrap;
   column-gap: clamp(24px, 3.8vw, 56px);
   margin-top: clamp(8px, 2vw, 16px);
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--text);
+  border-bottom: 1px solid var(--border);
 }
 .meta > div {
   padding-block: 16px;
@@ -82,7 +82,7 @@
 }
 .metaStack {
   flex-basis: 100%;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 /* 규모 숫자 한 줄(SepList). 값만 굵게 */
 .scaleValue {
@@ -97,7 +97,7 @@
 }
 .tags li {
   padding: 4px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 500;
@@ -122,7 +122,7 @@
   letter-spacing: -0.02em;
 }
 .facts li[data-hi] .factValue {
-  color: var(--brand);
+  color: var(--text);
 }
 .factLabel {
   font-size: 0.9375rem;
@@ -153,7 +153,7 @@
     padding-block: 12px;
   }
   .meta > div + div {
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--border);
   }
   .meta dt {
     padding-top: 3px;
@@ -178,12 +178,12 @@
 .compare > div {
   position: relative;
   padding: 20px 24px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 4px;
   background: var(--surface);
 }
 .compare > div:last-child {
-  border-color: var(--brand);
+  border-color: var(--text);
 }
 .compare dt {
   font-size: 0.875rem;
@@ -191,7 +191,7 @@
   color: var(--muted);
 }
 .compare > div:last-child dt {
-  color: var(--accent-ink);
+  color: var(--text);
 }
 .compare dd {
   margin: 6px 0 0;
@@ -210,8 +210,8 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--brand);
-  color: #fff;
+  background: var(--text);
+  color: var(--bg);
   font-weight: 700;
   z-index: 1;
 }
@@ -227,10 +227,10 @@
   left: var(--gutter);
   right: var(--gutter);
   height: 1px;
-  background: var(--ink);
+  background: var(--text);
 }
 .screens::before {
-  background: var(--line);
+  background: var(--border);
 }
 .split {
   position: relative;
@@ -264,7 +264,7 @@
   gap: 12px;
   padding: 6px 0;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--text);
   transition: color 160ms ease;
 }
 .toc a :global(.mono) {
@@ -272,7 +272,7 @@
   color: var(--muted);
 }
 .toc a:hover {
-  color: var(--accent-ink);
+  color: var(--muted);
 }
 /* 「처리량을 측정하는 / 쪽」처럼 한 단어만 떨어지지 않게 */
 .tocLabel {
@@ -281,7 +281,7 @@
 .tocGroup {
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
   font-size: 0.8125rem;
   font-weight: 700;
   color: var(--muted);
@@ -301,7 +301,7 @@
   grid-template-columns: 3rem minmax(0, 1fr);
   gap: 4px 20px;
   padding-block: clamp(24px, 3vw, 36px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 .flowItem:first-child .beat {
@@ -350,7 +350,7 @@
   width: 7px;
   height: 7px;
   border-radius: 1px;
-  background: var(--brand);
+  background: var(--text);
   rotate: 45deg;
 }
 
@@ -358,8 +358,8 @@
   position: relative;
   margin: clamp(24px, 3.8vw, 48px) 0;
   padding: clamp(28px, 3.4vw, 44px) 0 clamp(28px, 3.4vw, 44px) clamp(40px, 5.2vw, 72px);
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-top: 1px solid var(--text);
+  border-bottom: 1px solid var(--text);
 }
 .pull::before {
   content: '“';
@@ -369,7 +369,7 @@
   font-family: var(--font-serif);
   font-size: clamp(4.25rem, 6.3vw, 5.625rem);
   line-height: 0.8;
-  color: var(--brand);
+  color: var(--text);
 }
 .pull p {
   font-size: clamp(1.1875rem, 1.9vw, 1.625rem);
@@ -379,14 +379,14 @@
 }
 .pull strong {
   font-weight: 800;
-  background: linear-gradient(transparent 60%, var(--mark-bg) 60%);
+  background: linear-gradient(transparent 60%, var(--notice-hover) 60%);
 }
 
 /* 부록 묶음 머리. 본 이야기(문제·판단·결과)의 제목보다 작게 */
 .moreTitle {
   margin-top: clamp(32px, 4.5vw, 56px);
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--text);
   font-size: 1.0625rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -431,10 +431,10 @@
 .frame {
   display: block;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 4px;
   aspect-ratio: 4 / 3;
-  background: var(--shot-frame);
+  background: var(--notice);
 }
 .shots[data-wide] .frame {
   aspect-ratio: auto;
@@ -457,7 +457,7 @@
   line-height: 1.65;
 }
 .shot figcaption strong {
-  color: var(--ink);
+  color: var(--text);
   font-size: 1rem;
 }
 
@@ -496,7 +496,7 @@
   transition: color 160ms ease;
 }
 .pagerLink:hover .pagerTitle {
-  color: var(--accent-ink);
+  color: var(--muted);
 }
 .pagerHome {
   justify-self: start;
@@ -527,7 +527,7 @@
 @media (max-width: 767px) {
   .aside {
     padding-bottom: 8px;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--border);
   }
   .compare {
     grid-template-columns: minmax(0, 1fr);

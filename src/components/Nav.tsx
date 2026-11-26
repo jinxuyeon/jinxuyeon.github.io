@@ -1,18 +1,16 @@
 import { sections } from '@/content/site';
 import { CommandPalette, type PaletteProject } from './CommandPalette';
-import { LogoMark } from './LogoMark';
 import { MobileMenu } from './MobileMenu';
 import { BrandLink, NavShell } from './NavClient';
 import { ThemeToggle } from './ThemeToggle';
 import styles from './Nav.module.css';
 
-/** 상단 내비. 정적인 로고·링크는 서버에서 그리고, 스크롤 감시와 aria-current만 클라이언트(NavClient)에 둔다. */
+/** 상단 내비. 정적인 이름·링크는 서버에서 그리고, 스크롤 감시와 aria-current만 클라이언트(NavClient)에 둔다. */
 export function Nav({ projects }: { projects: PaletteProject[] }) {
   return (
     <NavShell className={styles.nav} sentinelClassName={styles.sentinel}>
       <div className={`container ${styles.inner}`}>
         <BrandLink className={styles.brand}>
-          <LogoMark size={28} />
           <span>진수연</span>
         </BrandLink>
 

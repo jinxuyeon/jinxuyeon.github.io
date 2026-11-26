@@ -8,7 +8,7 @@
 .code {
   font-size: clamp(6.8125rem, 18.2vw, 14rem);
   line-height: 0.8;
-  color: var(--brand);
+  color: var(--text);
 }
 .title {
   font-size: clamp(1.6875rem, 3.2vw, 2.625rem);

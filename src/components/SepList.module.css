@@ -16,5 +16,5 @@
   display: inline-block;
   width: 1.2em;
   text-align: center;
-  color: var(--line-strong);
+  color: var(--muted);
 }

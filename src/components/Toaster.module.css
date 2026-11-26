@@ -12,7 +12,7 @@
   gap: 10px;
   padding: 12px 18px;
   border-radius: 999px;
-  background: var(--ink);
+  background: var(--text);
   color: var(--bg);
   font-size: 0.9375rem;
   font-weight: 600;
@@ -23,5 +23,5 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--brand);
+  background: var(--text);
 }

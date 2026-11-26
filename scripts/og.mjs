@@ -36,7 +36,7 @@ function card({ kind, title, summary }) {
         background: C.bg,
         padding: '64px 72px',
         fontFamily: 'Pretendard',
-        color: C.ink,
+        color: C.text,
       },
     },
     h(
@@ -47,32 +47,12 @@ function card({ kind, title, summary }) {
           alignItems: 'center',
           justifyContent: 'space-between',
           paddingBottom: 32,
-          borderBottom: `2px solid ${C.line}`,
+          borderBottom: `2px solid ${C.border}`,
         },
       },
       h(
         'div',
         { style: { display: 'flex', alignItems: 'center', gap: 24 } },
-        h(
-          'div',
-          {
-            style: {
-              width: 84,
-              height: 84,
-              borderRadius: 20,
-              background: C.brand,
-              color: C.onAccent,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: 44,
-              fontWeight: 800,
-              letterSpacing: '-0.02em',
-              paddingBottom: 6,
-            },
-          },
-          '>_',
-        ),
         h(
           'div',
           { style: { display: 'flex', flexDirection: 'column' } },
@@ -85,7 +65,7 @@ function card({ kind, title, summary }) {
     h(
       'div',
       { style: { display: 'flex', flexDirection: 'column', gap: 18 } },
-      h('div', { style: { fontSize: 28, fontWeight: 600, color: C.accentInk } }, kind),
+      h('div', { style: { fontSize: 28, fontWeight: 600, color: C.text } }, kind),
       h(
         'div',
         {
@@ -133,12 +113,6 @@ export async function buildOgImages(outDir) {
       kind: profile.roleLine,
       title: lead.headline.map((line) => line.join(' ')),
       summary: lead.first.replace(/\*\*/g, ''),
-    },
-    {
-      file: 'colophon',
-      kind: '포트폴리오 사이트',
-      title: '이 사이트를 만든 방식',
-      summary: 'Next.js 16 정적 내보내기 · TypeScript · CSS Modules · Motion',
     },
     ...projects.map((p) => ({ file: p.slug, kind: p.kind, title: p.title, summary: p.summary })),
   ];

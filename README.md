@@ -8,7 +8,7 @@
 - React 19 · TypeScript(strict) · ESLint
 - CSS Modules + CSS 변수 토큰(`src/app/globals.css`). 라이트·다크 두 벌
 - Motion은 토스트 한 곳에만(LazyMotion). 나머지 움직임은 CSS
-- 글꼴: Pretendard·Source Serif 4(사이트 글자만 남긴 가변 글꼴 한 파일씩, 자체 호스팅), Reddit Mono(`next/font`, 라틴 서브셋)
+- 글꼴: Pretendard·Source Serif 4(사이트 글자만 남긴 가변 글꼴 한 파일씩, 자체 호스팅), Reddit Mono(`next/font`, 라틴 서브셋). 셋 다 SIL OFL 1.1
 
 ## 로컬에서
 
@@ -36,12 +36,11 @@ npm run typecheck
 | 경로 | 내용 |
 | --- | --- |
 | `src/content/` | 소개·프로젝트 데이터. 홈 카드와 상세 페이지가 같은 데이터를 쓴다 |
-| `src/app/` | 라우트: `/`, `/projects/[slug]/`, `/colophon/`, 404 |
+| `src/app/` | 라우트: `/`, `/projects/[slug]/`, 404 |
 | `src/components/` | 내비, ⌘K 팔레트, 모바일 메뉴, 테마 토글, 카드 |
 | `scripts/` | prebuild(글꼴·이미지·OG), postbuild(404 사본 정리), 빌드 결과 검사 |
 | `public/img/` | 원본 화면 이미지. 예전 주소 그대로 둔다 |
 
-모션·접근성·색 대비 원칙은 사이트의 「이 사이트를 만든 방식」(`/colophon/`) 페이지에 적었다.
 
 ## 배포
 

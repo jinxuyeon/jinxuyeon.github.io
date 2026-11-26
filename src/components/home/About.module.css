@@ -20,7 +20,7 @@
 }
 .statement strong {
   font-weight: 800;
-  background: linear-gradient(transparent 62%, var(--mark-bg) 62%);
+  background: linear-gradient(transparent 62%, var(--notice-hover) 62%);
 }
 
 .bento {
@@ -32,15 +32,15 @@
   display: grid;
   gap: 6px;
   padding: clamp(20px, 2.4vw, 28px);
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 4px;
   background: var(--surface);
 }
-/* 반전 카드. 다크에서 --ink로 뒤집으면 페이지에서 가장 밝은 면이 되므로 전용 토큰을 쓴다. */
+/* 반전 카드. 면은 글자색(--text), 글자는 배경색(--bg). 어두운 테마에서는 페이지에서 가장 밝은 면이 된다. */
 .cell[data-variant='accent'] {
-  border-color: color-mix(in srgb, var(--brand) 45%, transparent);
-  background: var(--invert-bg);
-  color: var(--invert-ink);
+  border-color: color-mix(in srgb, var(--text) 45%, transparent);
+  background: var(--text);
+  color: var(--bg);
 }
 .when {
   display: flex;
@@ -51,13 +51,13 @@
   color: var(--muted);
 }
 .cell[data-variant='accent'] .when {
-  color: color-mix(in srgb, var(--invert-ink) 72%, var(--invert-bg));
+  color: color-mix(in srgb, var(--bg) 72%, var(--text));
 }
 .when :global(.mono) {
-  color: var(--accent-ink);
+  color: var(--text);
 }
 .cell[data-variant='accent'] .when :global(.mono) {
-  color: var(--invert-ink);
+  color: var(--bg);
 }
 .org {
   margin-top: 8px;
@@ -75,14 +75,14 @@
   gap: 8px;
   margin-top: 10px;
   font-size: 0.9375rem;
-  color: color-mix(in srgb, var(--invert-ink) 72%, var(--invert-bg));
+  color: color-mix(in srgb, var(--bg) 72%, var(--text));
 }
 .note::before {
   content: '';
   width: 8px;
   height: 8px;
   border-radius: 2px;
-  background: var(--brand);
+  background: var(--text);
   rotate: 45deg;
 }
 

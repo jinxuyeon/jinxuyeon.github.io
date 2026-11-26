@@ -5,7 +5,7 @@
   align-content: start;
   gap: clamp(20px, 2.6vw, 36px);
   padding: clamp(24px, 3.6vw, 48px);
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 4px;
   background: var(--surface);
   transition:
@@ -19,7 +19,7 @@
   position: absolute;
   inset: -1px -1px auto;
   height: 3px;
-  background: var(--brand);
+  background: var(--text);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 360ms var(--ease-out);
@@ -27,13 +27,13 @@
 .card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lift);
-  border-color: var(--line-strong);
+  border-color: var(--text);
 }
 .card:hover::before {
   transform: scaleX(1);
 }
 .card:has(.link:focus-visible) {
-  outline: 2px solid var(--brand);
+  outline: 2px solid var(--text);
   outline-offset: 4px;
 }
 .card:has(.link:focus-visible)::before {
@@ -48,7 +48,7 @@
   font-size: 0.875rem;
 }
 .no {
-  color: var(--accent-ink);
+  color: var(--text);
   font-weight: 600;
 }
 .kind {
@@ -65,7 +65,7 @@
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  color: var(--ink);
+  color: var(--text);
 }
 .arrow {
   display: inline-block;
@@ -141,19 +141,19 @@
 .lines {
   display: grid;
   margin-top: clamp(24px, 3vw, 36px);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 .lines > div {
   display: grid;
   grid-template-columns: 6.5rem minmax(0, 1fr);
   gap: 16px;
   padding: 14px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .lines dt {
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--accent-ink);
+  color: var(--text);
   padding-top: 2px;
 }
 .lines dd {
@@ -171,9 +171,9 @@
 .thumb {
   overflow: hidden;
   border-radius: 3px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   aspect-ratio: 4 / 3;
-  background: var(--shot-frame);
+  background: var(--notice);
 }
 /* 반폭 카드는 옆 카드와 높이가 벌어지지 않게 낮게 둔다 */
 .card[data-size='md'] .thumb {
@@ -202,7 +202,7 @@
   display: grid;
   gap: 4px;
   padding: 14px 0 16px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 .card[data-has-thumb='true'] .fact {
   padding-bottom: 0;
@@ -218,7 +218,7 @@
   font-size: clamp(1.9375rem, 2.4vw, 2.25rem);
 }
 .fact[data-hi] .value {
-  color: var(--brand);
+  color: var(--text);
 }
 .label {
   font-size: 0.875rem;
@@ -228,11 +228,11 @@
 
 .compare {
   display: grid;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 .compare > div {
   padding: 16px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .compare > div:last-child {
   border-bottom: 0;
@@ -243,7 +243,7 @@
   color: var(--muted);
 }
 .compare > div:last-child dt {
-  color: var(--accent-ink);
+  color: var(--text);
 }
 .compare dd {
   margin: 4px 0 0;
@@ -261,7 +261,7 @@
 }
 .tags li {
   padding: 5px 10px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border);
   border-radius: 999px;
   font-size: 0.75rem;
   color: var(--muted);
@@ -368,11 +368,11 @@
     align-content: start;
     gap: 10px;
     padding: 16px 0 0;
-    border-top: 2px solid var(--line);
+    border-top: 2px solid var(--border);
     border-bottom: 0;
   }
   .card[data-layout='stack'][data-size='lg'] .lines > div[data-line='result'] {
-    border-top-color: var(--brand);
+    border-top-color: var(--text);
   }
   .card[data-layout='stack'][data-size='lg'] .lines > div[data-line='result'] dd {
     font-size: 1.125rem;

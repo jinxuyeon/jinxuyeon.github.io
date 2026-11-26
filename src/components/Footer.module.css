@@ -1,5 +1,5 @@
 .footer {
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 .inner {
   display: flex;
@@ -12,7 +12,6 @@
 .name {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
