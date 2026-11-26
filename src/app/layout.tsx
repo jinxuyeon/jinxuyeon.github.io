@@ -9,7 +9,7 @@ import { projects } from '@/content/projects';
 import { profile, SITE_URL } from '@/content/site';
 import { tokens } from '@/content/tokens';
 import { SITE_NAME } from '@/lib/meta';
-import { themeInitScript } from '@/lib/theme';
+import { faviconInitScript, themeInitScript } from '@/lib/theme';
 import './globals.css';
 
 // 모노는 영문·숫자 메타 라벨에만 쓴다. 라틴 서브셋만 받아 빌드에 넣는다.
@@ -26,7 +26,8 @@ export const metadata: Metadata = {
   description: profile.description,
   authors: [{ name: profile.name, url: SITE_URL }],
   openGraph: { siteName: SITE_NAME, locale: 'ko_KR', type: 'website' },
-  icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }] },
+  // 탭 아이콘(rel="icon")은 여기 적지 않는다. 테마에 맞는 파일을 faviconInitScript가 골라 링크를 만든다.
+  icons: { apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }] },
 };
 
 export const viewport: Viewport = {
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ko" className={mono.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: faviconInitScript }} />
       </head>
       <body>
         <a href="#main" className="skip-link">

@@ -1,4 +1,4 @@
-/** `>_` 타일. 파비콘과 같은 모양. */
+/** `>_` 타일. 파비콘은 타일 없이 J 글리프만(public/favicon.svg)이라 모양이 다르다. */
 export function LogoMark({ size = 28, className }: { size?: number; className?: string }) {
   return (
     <svg

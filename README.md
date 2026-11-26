@@ -26,6 +26,7 @@ npm run typecheck
 
 `npm run build` 앞에 `scripts/prebuild.mjs`가 돈다. `src/`에 쓰인 글자만 남긴 Pretendard·Source Serif 4 서브셋을 `public/fonts/`에 만들고,
 화면 이미지의 WebP 사본과 페이지별 OG 이미지(`scripts/og.mjs`, 1200×630 PNG)를 만든다.
+`public/favicon.svg` 하나에서 ico·apple-touch-icon·홈 화면 아이콘·어두운 테마용 SVG도 여기서 만든다(`scripts/favicon.mjs`).
 네트워크 없이 돌고, 만든 파일은 커밋하지 않는다. 빌드 뒤에는 `scripts/postbuild.mjs`가 404 페이지의 여분 사본을 지운다.
 
 색은 `src/content/tokens.ts`와 `src/app/globals.css`의 CSS 변수 두 곳에 있다. 하나를 바꾸면 다른 쪽도 바꾼다(`npm run check`가 비교한다).
