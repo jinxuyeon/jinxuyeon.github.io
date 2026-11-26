@@ -23,7 +23,7 @@ export const projects: Project[] = [
     // 카드 이야기(소켓·배지)와 이어지는 숫자가 없어 전부 상세 머리에만 둔다
     facts: [
       { value: 3, unit: '건', label: '타입 생성으로 드러난 실서버 불일치', hi: true, onCard: false },
-      { prefix: '95~100 → ', value: '21~46', unit: 'ms', label: '300줄 방 새 글 렌더링 (개발 빌드 실측)', onCard: false },
+      { prefix: '14.9 → ', value: '2.3', unit: 'ms', label: '300줄 방 새 글 렌더링 (운영 빌드 중앙값)', onCard: false },
       { value: 674, label: '프론트엔드 테스트', onCard: false },
       { value: 2, label: '웹 + Windows 데스크톱', onCard: false },
     ],
@@ -251,7 +251,7 @@ export const projects: Project[] = [
           },
           {
             type: 'p',
-            text: '개발 빌드 실측으로 300줄 방에서 새 글 한 통이 **95~100ms에서 21~46ms로**, 다른 방의 안 읽음 숫자 하나가 164~174ms에서 17~29ms로 줄었고 50ms를 넘는 긴 작업이 사라졌습니다. AI 화면도 답변 조각마다 지난 답변을 다시 그리고 있어서, 답변 8개가 쌓인 대화에서 조각 하나에 약 40ms 걸리던 것을 약 10ms로 줄였습니다.',
+            text: '운영 빌드에서 재면 300줄 방에 새 글 한 통이 도착해 새 줄이 DOM에 들어가기까지 **14.9ms에서 2.3ms로**, 다른 방의 안 읽음 숫자 하나는 15.45ms에서 2.45ms로 줄었습니다(60회 중앙값). 다시 그려지는 줄은 300개에서 1개가 됐습니다. CPU 제한이 없는 운영 빌드에서는 고치기 전에도 50ms를 넘는 긴 작업이 없었고, CPU를 4배 늦추면 고치기 전 20회 모두 긴 작업이던 것이 고친 뒤 0회였습니다. 개발 빌드로는 95~100ms에서 21~46ms였습니다. AI 화면도 답변 조각마다 지난 답변을 다시 그리고 있어서 답변 단위로 끊었고, 조각마다 다시 그려지는 컴포넌트가 193개에서 34개로 줄었습니다. 운영 빌드에서는 조각 하나가 원래 수 ms라 시간 차이는 측정 오차 범위였습니다.',
           },
         ],
       },
@@ -544,7 +544,7 @@ export const projects: Project[] = [
     featured: true,
     summary: '강아지 사진을 AI로 바꿔 주고 간식 계산기로 이어 주는 쇼핑몰 유입용 마케팅 도구',
     intro:
-      '강아지 사진을 AI로 바꿔 주고 간식 계산기로 이어 주는 쇼핑몰 유입용 마케팅 도구(play.nutti.co.kr, 현재 비활성). **사용자 화면 11개**를 맡았고, 클릭 이벤트를 백엔드 지표 API와 GA4에 함께 기록해 단계별 유입을 잴 수 있게 했습니다. 코드와 [시연 영상](https://github.com/N-utti/nutti-photo-playground/releases/tag/demo-2026-09)은 [github.com/N-utti/nutti-photo-playground](https://github.com/N-utti/nutti-photo-playground)에 공개돼 있습니다.',
+      '강아지 사진을 AI로 바꿔 주고 간식 계산기로 이어 주는 쇼핑몰 유입용 마케팅 도구(play.nutti.co.kr, 현재 비활성). **사용자 화면 11개**를 맡았고, 단계마다 클릭 이벤트를 백엔드 지표 API에 기록했습니다. 코드와 [시연 영상](https://github.com/N-utti/nutti-photo-playground/releases/tag/demo-2026-09)은 [github.com/N-utti/nutti-photo-playground](https://github.com/N-utti/nutti-photo-playground)에 공개돼 있습니다.',
     role: '사용자 화면 11개',
     team: EMPLOYED_TEAM,
     period: '2026.08 ~ 09',
@@ -555,7 +555,7 @@ export const projects: Project[] = [
       { value: 4, unit: '단계', label: 'CI: 린트, 타입, 테스트, 빌드' },
     ],
     card: {
-      did: '사용자 화면 11개. 클릭 이벤트를 백엔드 지표 API와 GA4에 함께 기록해 단계별 유입을 잴 수 있게 했습니다.',
+      did: '사용자 화면 11개. 단계마다 클릭 이벤트를 백엔드 지표 API에 기록했습니다.',
       hard: '프론트에 테스트가 0개였고 CI가 프론트를 검사하지 않았습니다. 기능은 계속 늘어나는데 안전망이 없었습니다.',
       result: 'Vitest 도입 → 프론트 검사 워크플로 신설 → 목 상태 격리 순으로 깔아, 지금은 테스트 533개가 PR마다 CI에서 돕니다.',
     },
@@ -640,10 +640,10 @@ export const projects: Project[] = [
     featured: true,
     summary: '기업 IR 연락처를 자동 수집하고 직원은 검수만 하는 시스템',
     intro:
-      '기업 IR 연락처를 자동 수집하고 **직원은 검수만** 하는 시스템. 제가 맡은 검수 웹앱이 검수 직원이 쓰는 유일한 화면입니다. 2026년 10월 기준으로 **발견 원장 약 30만 건, 보유 기업 약 6만 사, 검수 큐 약 6만 건**을 다룹니다. 직원들이 매일 쓰는 화면이라 지금도 유지보수하고 있습니다. 코드와 [시연 영상](https://github.com/wjdtjddns98/lead-crawler/releases/tag/demo-2026-10)은 [github.com/wjdtjddns98/lead-crawler](https://github.com/wjdtjddns98/lead-crawler)에 공개돼 있습니다.',
+      '기업 IR 연락처를 자동 수집하고 **직원은 검수만** 하는 시스템. 제가 맡은 검수 웹앱이 검수 직원이 쓰는 유일한 화면입니다. 2026년 10월 기준으로 **발견 원장 약 30만 건, 보유 기업 약 6만 사, 검수 큐 약 6만 건**을 다룹니다. 2026년 11월 현재 운영을 잠시 멈춘 상태입니다. 코드와 [시연 영상](https://github.com/wjdtjddns98/lead-crawler/releases/tag/demo-2026-10)은 [github.com/wjdtjddns98/lead-crawler](https://github.com/wjdtjddns98/lead-crawler)에 공개돼 있습니다.',
     role: '검수 웹앱',
     team: EMPLOYED_TEAM,
-    period: '2026.06 ~',
+    period: '2026.06 ~ 11',
     stack: ['React', 'TypeScript', 'Tailwind CSS v4'],
     // 카드에는 전후 비교(compare)만 두고 숫자는 상세 머리에. 데이터 규모는 README 규칙대로 대략값만.
     facts: [
@@ -684,8 +684,8 @@ export const projects: Project[] = [
             type: 'list',
             items: [
               '검수 건을 담당자에게 고정 배정했습니다. 반납을 없애고 조회와 받기를 나눠 같은 건을 두 사람이 붙잡는 일과 받아 놓고 방치하는 일을 함께 없앴습니다.',
-              '확정과 거부를 2단계로 통일해 마우스로 눌러도 확인 모달이 뜨게 했습니다. 되돌리는 비용이 큰 동작입니다.',
-              '거부에 `Delete` 단축키를 달아 손이 마우스를 떠나지 않게 했습니다.',
+              '확정을 2단계로 통일해 마우스로 눌러도 확인 모달이 뜨게 했습니다. 확정된 건을 거부로 번복할 때도 확인을 거칩니다. 되돌리는 비용이 큰 동작입니다.',
+              '사이트 탐색 창의 거부에는 `Delete` 단축키를 달았습니다.',
               '확정이나 거부를 번복하려 하면 모달에서 길이 끊기던 것을 이었습니다.',
               '국가, 업종, 상장 여부, 시장, 지역 다중 필터와 컬럼 정렬을 넣고 새로고침해도 탭이 유지되게 했습니다.',
             ],
