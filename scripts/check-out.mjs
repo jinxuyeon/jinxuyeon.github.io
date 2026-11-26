@@ -55,12 +55,23 @@ for (const { route, text } of pages) {
   // 페이지 메타의 openGraph가 layout 값을 통째로 덮어쓰므로 사이트 이름·언어가 빠지기 쉽다
   if (!meta(html, 'property', 'og:site_name')) fail(`${route}: og:site_name 없음`);
   if (meta(html, 'property', 'og:locale') !== 'ko_KR') fail(`${route}: og:locale이 ko_KR 아님`);
+  // 아이콘: 홈 화면용(apple-touch·manifest)은 링크로, 탭 아이콘은 테마를 고르는 스크립트(src/lib/theme.ts)로
+  for (const [name, re] of [
+    ['apple-touch-icon 링크', /<link[^>]*rel="apple-touch-icon"[^>]*href="\/apple-touch-icon\.png"/],
+    ['manifest 링크', /<link[^>]*rel="manifest"[^>]*href="\/manifest\.webmanifest"/],
+    ['탭 아이콘 스크립트', /<head>[\s\S]*favicon-dark\.svg[\s\S]*<\/head>/],
+  ]) {
+    if (!re.test(html)) fail(`${route}: ${name} 없음`);
+  }
+  // 탭 아이콘을 링크로도 적으면 하이드레이션 뒤 링크가 둘이 되어 크롬이 테마를 못 따라간다
+  if (/<link[^>]*rel="icon"/.test(html)) fail(`${route}: rel="icon" 링크가 HTML에 적혀 있음`);
   // 글꼴 preload는 한 번만(JSX <link>로 쓰면 React가 끌어올린 것과 두 번 찍힌다)
   const preloads = html.match(/<link[^>]*rel="preload"[^>]*href="\/fonts\/pretendard-site\.woff2"/g)?.length ?? 0;
   if (preloads !== 1) fail(`${route}: 글꼴 preload ${preloads}개(1개여야 함)`);
 }
 
-for (const f of ['404.html', 'sitemap.xml', 'robots.txt', 'favicon.svg']) {
+const ICON_FILES = ['favicon.svg', 'favicon-dark.svg', 'favicon.ico', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'manifest.webmanifest'];
+for (const f of ['404.html', 'sitemap.xml', 'robots.txt', ...ICON_FILES]) {
   if (!existsSync(path.join(out, f))) fail(`${f} 없음`);
 }
 // 404 페이지 사본이 다른 주소에서 200으로 열리지 않게(scripts/postbuild.mjs가 지운다)

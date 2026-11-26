@@ -10,3 +10,7 @@ public/fonts/
 public/og/
 public/img/*.webp
 public/grain.png
+public/favicon-dark.svg
+public/favicon.ico
+public/apple-touch-icon.png
+public/icon-*.png

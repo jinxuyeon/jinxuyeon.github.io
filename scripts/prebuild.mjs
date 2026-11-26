@@ -4,6 +4,7 @@
 //      카드 썸네일은 데이터(thumbCrop)에 적힌 구역만 잘라 `<파일>-thumb.webp`로
 //   3) 배경 그레인용 256px 노이즈 PNG
 //   4) 페이지별 OG 이미지(scripts/og.mjs)
+//   5) favicon.svg에서 나머지 아이콘(scripts/favicon.mjs)
 import { mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
@@ -11,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import subsetFont from 'subset-font';
 import { projects } from '../src/content/projects.ts';
+import { buildFavicons } from './favicon.mjs';
 import { collectChars } from './font-chars.mjs';
 import { buildOgImages } from './og.mjs';
 
@@ -113,3 +115,4 @@ await convertImages();
 await makeThumbs();
 await makeGrain();
 await buildOgImages(path.join(pub, 'og'));
+await buildFavicons(pub);
