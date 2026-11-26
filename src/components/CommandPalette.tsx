@@ -90,13 +90,6 @@ export function CommandPalette({ projects }: { projects: PaletteProject[] }) {
         run: () => toSection(s.id),
       })),
       {
-        id: 'colophon',
-        label: '이 사이트를 만든 방식',
-        group: '이동',
-        keywords: 'colophon 사이트 만든 방식 이 사이트는 about site',
-        run: () => router.push('/colophon/'),
-      },
-      {
         id: 'copy-email',
         label: '이메일 주소 복사',
         group: '기능',
@@ -222,9 +215,6 @@ export function CommandPalette({ projects }: { projects: PaletteProject[] }) {
       >
         <div className={styles.panel}>
           <div className={styles.field}>
-            <span className={`mono ${styles.prompt}`} aria-hidden="true">
-              &gt;_
-            </span>
             <input
               className={styles.input}
               type="text"

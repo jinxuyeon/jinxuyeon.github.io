@@ -33,13 +33,13 @@
   align-items: baseline;
   gap: 12px;
   padding-bottom: 18px;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--text);
   font-size: clamp(1.4375rem, 2.2vw, 1.9375rem);
   font-weight: 800;
   letter-spacing: -0.04em;
 }
 .count {
-  color: var(--accent-ink);
+  color: var(--text);
   font-size: 0.875rem;
 }
 .rows {
@@ -50,7 +50,7 @@
   grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 2fr) minmax(0, 2fr);
   gap: 12px clamp(20px, 2.4vw, 40px);
   padding-block: 24px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 /* 마지막 행은 아래선을 두지 않는다. 다음 섹션 머리의 헤어라인이 경계다(두 줄 사이 빈 띠가 생기지 않게). */
 .row:last-child {
@@ -65,13 +65,13 @@
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
-  color: var(--ink);
+  color: var(--text);
 }
 .rowLink:hover {
-  color: var(--accent-ink);
+  color: var(--muted);
 }
 .rowArrow {
-  color: var(--brand);
+  color: var(--text);
   transition: transform 220ms var(--ease-out);
 }
 .rowLink:hover .rowArrow {
@@ -123,7 +123,7 @@
   display: inline-block;
   width: 1.2em;
   text-align: center;
-  color: var(--line-strong);
+  color: var(--muted);
 }
 
 @media (max-width: 559px) {

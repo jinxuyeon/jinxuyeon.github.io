@@ -6,6 +6,6 @@ import { SITE_URL } from '@/content/site';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ['/', ...projects.map((p) => `/projects/${p.slug}/`), '/colophon/'];
+  const paths = ['/', ...projects.map((p) => `/projects/${p.slug}/`)];
   return paths.map((path) => ({ url: new URL(path, SITE_URL).toString() }));
 }

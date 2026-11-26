@@ -52,29 +52,10 @@
   display: inline-block;
 }
 
-.pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.55em;
-  height: 0.78em;
-  border-radius: 999px;
-  background: var(--brand);
-  vertical-align: 0.02em;
-}
-.pillGlyph {
-  font-family: var(--font-mono);
-  font-size: 0.36em;
-  font-weight: 700;
-  letter-spacing: 0;
-  color: #fff;
-  translate: 0 -0.04em;
-}
-
 .caret {
   display: inline-block;
   margin-left: 0.06em;
-  color: var(--brand);
+  color: var(--text);
   font-weight: 700;
 }
 
@@ -83,10 +64,6 @@
   .segInner {
     animation: line-up 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: calc(var(--i) * 60ms);
-  }
-  /* 알약은 터미널 커서처럼 왼쪽에서 쓸려 나온다 */
-  .pill {
-    animation: pill-open 420ms var(--ease-out) 120ms both;
   }
   /* 4번만 깜빡이고 멈춘다(WCAG 2.2.2) */
   .caret {
@@ -99,14 +76,6 @@
   }
   to {
     transform: none;
-  }
-}
-@keyframes pill-open {
-  from {
-    clip-path: inset(0 100% 0 0 round 999px);
-  }
-  to {
-    clip-path: inset(0 0 0 0 round 999px);
   }
 }
 @keyframes blink {
@@ -123,7 +92,7 @@
   gap: 24px 48px;
   margin-top: clamp(8px, 1.2vw, 16px);
   padding-top: clamp(20px, 2.4vw, 28px);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border);
 }
 .lead {
   max-width: 40rem;
@@ -134,7 +103,7 @@
   color: var(--muted);
 }
 .lead strong {
-  color: var(--ink);
+  color: var(--text);
   font-weight: 700;
 }
 /* 「연락하기」는 헤더 메뉴가 접히는 폭(Nav.module.css의 859px 이하)에서만 보인다.

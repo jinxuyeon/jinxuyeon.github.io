@@ -7,7 +7,7 @@
 .head::before {
   content: '';
   height: 1px;
-  background: var(--line);
+  background: var(--border);
 }
 .head[data-size='sm'] {
   gap: clamp(12px, 1.6vw, 20px);

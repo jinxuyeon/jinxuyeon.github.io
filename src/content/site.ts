@@ -9,7 +9,6 @@ export const profile = {
   email: 'ssyeo_n@naver.com',
   github: 'https://github.com/jinxuyeon',
   githubLabel: 'github.com/jinxuyeon',
-  repo: 'https://github.com/jinxuyeon/jinxuyeon.github.io',
   /** 메타 설명과 OG 설명(원문 그대로) */
   description: '프론트엔드 개발자 진수연. 프로젝트 4개의 프론트엔드를 전담하며 쌓은 케이스 스터디 포트폴리오.',
   ogDescription: '프로젝트 4개의 프론트엔드를 전담하며 쌓은 케이스 스터디 포트폴리오.',

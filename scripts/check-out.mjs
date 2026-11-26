@@ -22,7 +22,6 @@ const meta = (html, attr, name) => {
 const pages = [
   { route: '/', text: ['진수연', '화면을 그리는', '회귀 방지까지'] },
   ...projects.map((p) => ({ route: `/projects/${p.slug}/`, text: [p.title, p.summary.slice(0, 12)] })),
-  { route: '/colophon/', text: ['이 사이트를 만든 방식'] },
 ];
 
 for (const { route, text } of pages) {
@@ -86,16 +85,24 @@ if (originals.length !== expectedShots.size) {
 }
 for (const f of expectedShots) if (!originals.includes(f)) fail(`out/img/${f} 없음`);
 
-// 색 토큰: 빌드된 CSS의 :root 값이 src/content/tokens.ts와 같은지. 대비 표·OG 이미지가 이 파일을 읽는다.
+// 색 토큰: 빌드된 CSS의 :root 값이 src/content/tokens.ts와 같은지. OG 이미지와 브라우저 테마 색이 이 파일을 읽는다.
 const cssDir = path.join(out, '_next/static');
 const cssFiles = readdirSync(cssDir, { recursive: true })
   .filter((f) => String(f).endsWith('.css'))
   .map((f) => readFileSync(path.join(cssDir, String(f)), 'utf8'));
+// 색 값을 여덟 자리 헥스 한 꼴로 맞춘다. 압축기가 rgba()를 #rrggbbaa로 바꾸므로 토큰 쪽 rgba도 같은 꼴로 바꿔 비교한다.
 const hex6 = (v) => {
-  const m = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(v.trim());
-  if (!m) return v.trim().toLowerCase();
-  const h = m[1].toLowerCase();
-  return `#${h.length === 3 ? [...h].map((c) => c + c).join('') : h}`;
+  const t = v.trim().toLowerCase();
+  const h = /^#([0-9a-f]{3,8})$/.exec(t)?.[1];
+  if (h) {
+    const full = h.length <= 4 ? [...h].map((c) => c + c).join('') : h;
+    return `#${full.length === 6 ? `${full}ff` : full}`;
+  }
+  const m = /^rgba?\(([^)]+)\)$/.exec(t);
+  if (!m) return t;
+  const [r, g, b, a = '1'] = m[1].split(/[\s,/]+/).filter(Boolean);
+  const byte = (n) => Math.round(Number(n)).toString(16).padStart(2, '0');
+  return `#${byte(r)}${byte(g)}${byte(b)}${byte(Number(a) * 255)}`;
 };
 const blocks = { light: [], dark: [] };
 for (const css of cssFiles) {
@@ -113,7 +120,7 @@ for (const theme of /** @type {const} */ (['light', 'dark'])) {
     for (const [name, value] of Object.entries(tokens[theme])) {
       const m = new RegExp(`${cssVar(name)}:([^;}]+)`).exec(body);
       if (!m) fail(`CSS ${theme}: ${cssVar(name)} 없음`);
-      else if (hex6(m[1]) !== value) fail(`CSS ${theme}: ${cssVar(name)} ${m[1]} ≠ tokens.ts ${value}`);
+      else if (hex6(m[1]) !== hex6(value)) fail(`CSS ${theme}: ${cssVar(name)} ${m[1]} ≠ tokens.ts ${value}`);
     }
   }
 }

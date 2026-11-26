@@ -17,7 +17,7 @@ button.burger {
   padding: 0 var(--gutter) max(24px, env(safe-area-inset-bottom));
   border: 0;
   background: var(--bg);
-  color: var(--ink);
+  color: var(--text);
   display: none;
   flex-direction: column;
 }
@@ -42,12 +42,11 @@ button.burger {
   align-items: center;
   justify-content: space-between;
   height: var(--nav-h);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   font-weight: 800;
   font-size: 1.0625rem;
   letter-spacing: -0.03em;
@@ -59,7 +58,7 @@ button.burger {
   flex: 1;
 }
 .item {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
 .link {
@@ -93,7 +92,7 @@ button.burger {
   line-height: 1.1;
 }
 .link:hover .label {
-  color: var(--accent-ink);
+  color: var(--muted);
 }
 
 .bottom {

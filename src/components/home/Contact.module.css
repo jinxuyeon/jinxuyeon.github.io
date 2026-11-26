@@ -1,18 +1,18 @@
 .contact {
   position: relative;
   overflow: hidden;
-  background: var(--contact-bg);
-  color: var(--on-contact);
+  background: var(--text);
+  color: var(--bg);
 }
 .contact:focus {
   outline: none;
 }
 .contact ::selection {
-  background: var(--on-contact);
-  color: var(--contact-bg);
+  background: var(--bg);
+  color: var(--text);
 }
 .contact :focus-visible {
-  outline-color: var(--on-contact);
+  outline-color: var(--bg);
 }
 .inner {
   padding-block: clamp(40px, 5.2vw, 80px) clamp(36px, 4.5vw, 60px);
@@ -26,7 +26,7 @@
 }
 .rows {
   margin-top: clamp(32px, 4.5vw, 60px);
-  border-top: 2px solid color-mix(in srgb, var(--on-contact) 90%, transparent);
+  border-top: 2px solid color-mix(in srgb, var(--bg) 90%, transparent);
 }
 .row {
   display: flex;
@@ -35,7 +35,7 @@
   justify-content: space-between;
   gap: 16px 24px;
   padding-block: clamp(20px, 2.6vw, 32px);
-  border-bottom: 1px solid color-mix(in srgb, var(--on-contact) 45%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--bg) 45%, transparent);
 }
 .value {
   display: inline-flex;
@@ -46,7 +46,7 @@
   letter-spacing: -0.04em;
   line-height: 1.1;
   overflow-wrap: anywhere;
-  background: linear-gradient(var(--on-contact), var(--on-contact)) 0 100% / 0% 3px no-repeat;
+  background: linear-gradient(var(--bg), var(--bg)) 0 100% / 0% 3px no-repeat;
   transition: background-size 260ms var(--ease-out);
 }
 .value:hover {
@@ -67,10 +67,10 @@
   align-items: center;
   min-height: clamp(48px, 3.9vw, 56px);
   padding: 0 clamp(18px, 1.7vw, 24px);
-  border: 2px solid var(--on-contact);
+  border: 2px solid var(--bg);
   border-radius: 999px;
   background: transparent;
-  color: var(--on-contact);
+  color: var(--bg);
   font-size: clamp(1.1875rem, 1.7vw, 1.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -81,8 +81,8 @@
     scale 120ms var(--ease-out);
 }
 .pill:hover {
-  background: var(--on-contact);
-  color: var(--contact-bg);
+  background: var(--bg);
+  color: var(--text);
 }
 .pill:active {
   scale: 0.97;

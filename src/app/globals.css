@@ -1,28 +1,18 @@
 /* ─────────────────────────────────────────────────────────────
    토큰. 값은 src/content/tokens.ts와 같아야 한다(npm run check가 비교한다).
-   --brand는 작은 글자 기준 대비에 못 미쳐 큰 글자·면·그래픽·포커스 링에만 쓴다.
-   작은 글자·링크·버튼 면은 --accent-ink. 실제 대비비는 /colophon/ 표에 있다.
-   --on-contact는 연락 섹션(--contact-bg) 위의 글자·선, --shot-frame은 스크린샷 틀 배경.
+   색은 무채색 여덟 가지뿐이고 포인트 색은 두지 않는다. 강조·버튼 면·포커스 링은 --text,
+   그 위의 글자는 --bg, 옅은 면(선택된 줄·스크린샷 틀)은 --notice, 형광펜 표시는 --notice-hover.
    ───────────────────────────────────────────────────────────── */
 :root {
-  --bg: #faf8f5;
+  --bg: #f5f5f7;
+  --text: #2a2a2a;
+  --muted: #999999;
+  --border: #e0d9d0;
   --surface: #ffffff;
-  --ink: #1a1716;
-  --muted: #6b635e;
-  --line: #e7e1d9;
-  --line-strong: #928983;
-  --brand: #c4554d;
-  --accent-ink: #b0423a;
-  --accent-hover: #993a33;
-  --accent-tint: #f6e3df;
-  --on-accent: #ffffff;
-  --mark-bg: #f6e3df;
-  --invert-bg: #1a1716;
-  --invert-ink: #faf8f5;
-  --contact-bg: #c4554d;
-  --on-contact: #ffffff;
-  --shot-frame: #0f1117;
-  --shadow-lift: 0 1px 0 rgb(26 23 22 / 0.04), 0 18px 40px -18px rgb(26 23 22 / 0.28);
+  --tint: rgba(0, 0, 0, 0.03);
+  --notice: #ebebeb;
+  --notice-hover: #e4e4e4;
+  --shadow-lift: 0 1px 0 rgb(0 0 0 / 0.04), 0 18px 40px -18px rgb(0 0 0 / 0.28);
   --grain-opacity: 0.035;
 
   --font-sans:
@@ -42,23 +32,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #141211;
-    --surface: #1c1918;
-    --ink: #ede8e3;
-    --muted: #a39b95;
-    --line: #2e2a28;
-    --line-strong: #6e6661;
-    --brand: #c4554d;
-    --accent-ink: #d86c64;
-    --accent-hover: #e58a83;
-    --accent-tint: #2a1a18;
-    --on-accent: #141211;
-    --mark-bg: #492623;
-    --invert-bg: #2a2320;
-    --invert-ink: #ede8e3;
-    --contact-bg: #a8463f;
-    --on-contact: #ffffff;
-    --shot-frame: #0f1117;
+    --bg: #222222;
+    --text: #f5f5f7;
+    --muted: #8a8a8a;
+    --border: #3a3a3a;
+    --surface: #2a2a2a;
+    --tint: rgba(255, 255, 255, 0.05);
+    --notice: #2c2c2c;
+    --notice-hover: #333333;
     --shadow-lift: 0 1px 0 rgb(0 0 0 / 0.3), 0 18px 40px -18px rgb(0 0 0 / 0.7);
     --grain-opacity: 0.05;
     color-scheme: dark;
@@ -66,23 +47,14 @@
 }
 
 :root[data-theme='dark'] {
-  --bg: #141211;
-  --surface: #1c1918;
-  --ink: #ede8e3;
-  --muted: #a39b95;
-  --line: #2e2a28;
-  --line-strong: #6e6661;
-  --brand: #c4554d;
-  --accent-ink: #d86c64;
-  --accent-hover: #e58a83;
-  --accent-tint: #2a1a18;
-  --on-accent: #141211;
-  --mark-bg: #492623;
-  --invert-bg: #2a2320;
-  --invert-ink: #ede8e3;
-  --contact-bg: #a8463f;
-  --on-contact: #ffffff;
-  --shot-frame: #0f1117;
+  --bg: #222222;
+  --text: #f5f5f7;
+  --muted: #8a8a8a;
+  --border: #3a3a3a;
+  --surface: #2a2a2a;
+  --tint: rgba(255, 255, 255, 0.05);
+  --notice: #2c2c2c;
+  --notice-hover: #333333;
   --shadow-lift: 0 1px 0 rgb(0 0 0 / 0.3), 0 18px 40px -18px rgb(0 0 0 / 0.7);
   --grain-opacity: 0.05;
   color-scheme: dark;
@@ -126,7 +98,7 @@ body {
   flex-direction: column;
   min-height: 100dvh;
   background: var(--bg);
-  color: var(--ink);
+  color: var(--text);
   font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 400;
@@ -216,7 +188,7 @@ code {
   letter-spacing: 0;
   padding: 0.08em 0.32em;
   border-radius: 4px;
-  background: color-mix(in srgb, var(--line) 70%, transparent);
+  background: color-mix(in srgb, var(--border) 70%, transparent);
   word-break: break-word;
 }
 
@@ -226,7 +198,7 @@ strong {
 
 mark {
   color: inherit;
-  background: var(--mark-bg);
+  background: var(--notice-hover);
   padding: 0.04em 0.24em;
   border-radius: 3px;
   box-decoration-break: clone;
@@ -234,8 +206,8 @@ mark {
 }
 
 ::selection {
-  background: var(--brand);
-  color: #ffffff;
+  background: var(--text);
+  color: var(--bg);
 }
 
 /* ─── 링크 ──────────────────────────────────────────────── */
@@ -246,7 +218,7 @@ a {
 
 /* 본문 안 링크: 늘 밑줄이 있고, 호버하면 진한 선이 왼쪽에서 그려진다 */
 .prose-link {
-  color: var(--accent-ink);
+  color: var(--text);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
@@ -272,7 +244,7 @@ a {
 
 /* ─── 포커스 ─────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--brand);
+  outline: 2px solid var(--text);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -304,7 +276,7 @@ a {
   z-index: 200;
   padding: 10px 16px;
   border-radius: 8px;
-  background: var(--ink);
+  background: var(--text);
   color: var(--bg);
   font-weight: 600;
   transform: translateY(-160%);
@@ -354,19 +326,19 @@ a {
   scale: 0.97;
 }
 .btn-primary {
-  background: var(--accent-ink);
-  color: var(--on-accent);
+  background: var(--text);
+  color: var(--bg);
 }
 .btn-primary:hover {
-  background: var(--accent-hover);
+  opacity: 0.85;
 }
 .btn-ghost {
-  border-color: var(--line-strong);
-  color: var(--ink);
+  border-color: var(--text);
+  color: var(--text);
   background: transparent;
 }
 .btn-ghost:hover {
-  border-color: var(--ink);
+  border-color: var(--text);
 }
 .btn .arrow {
   display: inline-block;
@@ -476,7 +448,7 @@ html:has(dialog[open]) {
   border: 1px solid transparent;
   border-radius: 999px;
   background: transparent;
-  color: var(--ink);
+  color: var(--text);
   cursor: pointer;
   transition:
     background-color 160ms ease,
@@ -484,7 +456,7 @@ html:has(dialog[open]) {
     scale 120ms var(--ease-out);
 }
 .icon-btn:hover {
-  border-color: var(--line-strong);
+  border-color: var(--text);
 }
 .icon-btn:active {
   scale: 0.94;

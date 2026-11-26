@@ -14,7 +14,7 @@
   height: var(--nav-h);
   /* 불투명하게 둔다. 반투명·블러는 뒤의 스크린샷·제목·버튼이 링크 뒤로 번져 비쳤다. */
   background: var(--bg);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
   /* 배경은 전환하지 않는다. 투명→불투명 사이 몇 프레임 동안 뒤 콘텐츠가 그대로 비친다. */
   transition:
     border-color 240ms ease,
@@ -39,17 +39,23 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   font-weight: 800;
   font-size: 1.0625rem;
   letter-spacing: -0.03em;
   border-radius: 8px;
 }
-.brand svg {
-  transition: rotate 300ms var(--ease-out);
+/* 홈에서는 첫 화면의 큰 이름이 보이는 동안 헤더의 이름을 감춘다(한 화면에 이름이 둘이 되지 않게).
+   큰 이름이 헤더 뒤로 올라가면 나타난다(NavClient가 data-hero-name을 붙인다). JS가 없으면 홈에서는 계속 감춰 둔다. */
+.brand[aria-current='page'] {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 200ms ease,
+    visibility 200ms;
 }
-.brand:hover svg {
-  rotate: -8deg;
+.nav[data-hero-name='out'] .brand[aria-current='page'] {
+  opacity: 1;
+  visibility: visible;
 }
 
 .links {
@@ -63,7 +69,7 @@
 .links a {
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--ink);
+  color: var(--text);
 }
 
 .actions {

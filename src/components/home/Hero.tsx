@@ -32,15 +32,7 @@ export function Hero() {
         <p className={styles.headline}>
           <span className={styles.line}>
             {seg(0, a)}{' '}
-            {seg(
-              1,
-              <>
-                {b}{' '}
-                <span className={styles.pill} aria-hidden="true">
-                  <span className={styles.pillGlyph}>&gt;_</span>
-                </span>
-              </>,
-            )}
+            {seg(1, b)}
           </span>
           <span className={styles.line}>
             {seg(2, c)}{' '}
